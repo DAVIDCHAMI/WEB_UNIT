@@ -1,0 +1,19 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+.project
+**/target/
+.settings/
+.classpath
+.pmd
+spring.log
+.idea
+log.directory_IS_UNDEFINED/
+.pmdruleset.xml
+.springBeans
+**/.DS_Store
+**/build
+**/*.idea
+**/*.iml
+**/bin
+**/gen
+**/ant-build
+.README.md.html
