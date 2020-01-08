@@ -22,7 +22,7 @@ public class NumeroCaracteresCampo implements Question<Boolean> {
 
   @Override
   public Boolean answeredBy(Actor actor) {
-    boolean resultado = false;
+    boolean resultado;
     if ("clave".equals(campo)) {
       resultado = CAMPO_CLAVE.of(campo).resolveFor(actor).getValue().length() == numeroCaracteres;
     } else {

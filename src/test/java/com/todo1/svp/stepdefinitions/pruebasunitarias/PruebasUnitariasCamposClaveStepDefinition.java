@@ -2,12 +2,15 @@ package com.todo1.svp.stepdefinitions.pruebasunitarias;
 
 import static com.todo1.svp.exceptions.CaracteresIncorrectoException.ULTIMO_CARACTER_INCORRECTO;
 import static com.todo1.svp.exceptions.EstadoElementoIncorrectoException.ESTADO_ELEMENTO_INCORRECTO;
+import static com.todo1.svp.exceptions.TextoNoVisibleException.ENMASCARAMIENTO_NO_VISIBLE;
 import static com.todo1.svp.userinterfaces.UsuarioPage.BOTON_PRINCIPAL;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 import com.todo1.svp.exceptions.CaracteresIncorrectoException;
 import com.todo1.svp.exceptions.EstadoElementoIncorrectoException;
+import com.todo1.svp.exceptions.TextoNoVisibleException;
+import com.todo1.svp.questions.Enmascaramiento;
 import com.todo1.svp.questions.EstadoElemento;
 import com.todo1.svp.questions.UltimoCaracter;
 import cucumber.api.java.es.Entonces;
@@ -36,5 +39,13 @@ public class PruebasUnitariasCamposClaveStepDefinition {
             seeThat(EstadoElemento.esHabilitado(estadoElemento))
                 .orComplainWith(
                     EstadoElementoIncorrectoException.class, ESTADO_ELEMENTO_INCORRECTO));
+  }
+
+  @Entonces("el observa que su clave es enmascarada")
+  public void verificarEnmascaramientoClave() {
+    theActorInTheSpotlight()
+        .should(
+            seeThat(Enmascaramiento.datosClave())
+                .orComplainWith(TextoNoVisibleException.class, ENMASCARAMIENTO_NO_VISIBLE));
   }
 }

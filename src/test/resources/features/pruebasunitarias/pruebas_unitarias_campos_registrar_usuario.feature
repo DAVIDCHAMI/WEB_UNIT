@@ -16,8 +16,8 @@ Característica: Pruebas unitarias campos en la pantalla registrar usuario
 
     Ejemplos:
       | Diligenciar                              | Numero de caracteres | Mensaje de error                     |
-      | pepito_perez1234@hotmail.com             | 28                   |                                      |
-      | pepitoñ.perez-1234@yahoo.com             | 27                   |                                      |
+      | pepito_perez1234@hotñmail.com            | 28                   |                                      |
+      | pepitoñ.perez-1234@yañhoo.com            | 27                   |                                      |
       | jauahdjsjs_jdjde.iedjie2132ñ.com         | 31                   | Ingresa un correo electrónico válido |
       | !j"u#a$n%&@todoñ1.net                    | 14                   |                                      |
       | juanperez@ñmail12%&"/3-fr.com            | 24                   |                                      |

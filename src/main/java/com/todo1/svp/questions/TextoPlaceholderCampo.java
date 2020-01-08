@@ -25,7 +25,12 @@ public class TextoPlaceholderCampo implements Question<Boolean> {
     for (String textoPlaceholder : texto) {
       if (CAMPO.of(textoPlaceholder).resolveFor(actor).isVisible()) {
         resultado = true;
-      } else resultado = PLACEHOLDER_TYPE_LIST.of(textoPlaceholder).resolveFor(actor).isVisible();
+      } else {
+        resultado = PLACEHOLDER_TYPE_LIST.of(textoPlaceholder).resolveFor(actor).isVisible();
+      }
+      if (!resultado) {
+        break;
+      }
     }
     return resultado;
   }

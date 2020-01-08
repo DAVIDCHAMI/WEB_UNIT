@@ -6,6 +6,13 @@ Característica: Pruebas unitarias campos en la pantalla generar clave
   Quiero probar las validaciones de los campos en la pantalla generar clave
   Para brindar un buen servicio
 
+  Escenario:  Verificación placeholder campos
+    Cuando que camilo quiere ingresar a la pagina de generar clave
+    Entonces el observa que el placeholder del campo esta correcto
+      | Ingresa el número de documento  |
+      | Ingresa la nueva clave          |
+      | Confirma la nueva clave         |
+
   Esquema del escenario: Validaciones campo Type list tipo de documento
     Dado que camilo quiere ingresar a la pagina de generar clave
     Cuando el selecciona un tipo de documento: <Tipo de documento>
@@ -113,13 +120,5 @@ Característica: Pruebas unitarias campos en la pantalla generar clave
       | 12345678                    | 1234                          | 4321                              | Desabilitado        |
       | 12345678                    | 2                             |                                   | Desabilitado        |
       | 12345678                    | 2345                          | 2                                 | Desabilitado        |
-
-  Escenario:  Verificación placeholder campos
-    Cuando que camilo quiere ingresar a la pagina de generar clave
-    Entonces el observa que el placeholder del campo esta correcto
-      | Selecciona el tipo de documento |
-      | Ingresa el número de documento  |
-      | Ingresa la nueva clave          |
-      | Confirma la nueva clave         |
 
 

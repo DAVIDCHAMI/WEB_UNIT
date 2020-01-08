@@ -38,6 +38,9 @@ public class TextoMostradosPantalla implements Question<Boolean> {
           mensajeCorrecto = false;
         }
       }
+      if (!mensajeCorrecto) {
+        break;
+      }
     }
     return mensajeCorrecto;
   }

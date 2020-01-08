@@ -19,6 +19,7 @@ Característica: Pruebas unitarias campos en la pantalla ingresar clave
     Y el observa que el ultimo caracter del campo clave es <Ultimo caracter>
     Y el observa que el boton: continuar esta <Estado del boton>
     Y el observa en pantalla el siguiente mensaje de error: <Mensaje de error>
+    Y el observa que su clave es enmascarada
 
     Ejemplos:
       | clave  | Numero de caracteres | Ultimo caracter | Mensaje de error                  | Estado del boton |

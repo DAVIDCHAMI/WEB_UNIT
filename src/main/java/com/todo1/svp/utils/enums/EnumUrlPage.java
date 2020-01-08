@@ -1,13 +1,13 @@
 package com.todo1.svp.utils.enums;
 
 public enum EnumUrlPage {
-  URL_USUARIO_PAGE("https://kymabank-qa-ui.todo-1.com/BC_SVP_User/", "Hola"),
+  URL_USUARIO_PAGE("https://kymabank-dev-ui.todo-1.com/BC_SVP_User/", "Hola"),
   URL_RECORDAR_USUARIO_PAGE(
-      "https://kymabank-qa-ui.todo-1.com/BC_SVP_User/ForgotUser", "Recordar usuario"),
+      "https://kymabank-dev-ui.todo-1.com/BC_SVP_User/ForgotUser", "Recordar usuario"),
   URL_GENERAR_CLAVE_PAGE(
-      "https://kymabank-qa-ui.todo-1.com/BC_SVP_User/GeneratePassword", "Generar clave"),
+      "https://kymabank-dev-ui.todo-1.com/BC_SVP_User/GeneratePassword", "Generar clave"),
   URL_REGISTRAR_USUARIO_PAGE(
-      "https://kymabank-qa-ui.todo-1.com/BC_SVP_User/User", "Registrar usuario");
+      "https://kymabank-dev-ui.todo-1.com/BC_SVP_User/User", "Registrar usuario");
 
   private String valor;
   private String tituloPantalla;
