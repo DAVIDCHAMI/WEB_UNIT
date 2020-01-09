@@ -27,6 +27,9 @@ apply plugin: 'net.serenity-bdd.aggregator'
 apply plugin: 'com.github.sherter.google-java-format'
 apply plugin: 'org.sonarqube'
 
+compileJava.dependsOn 'googleJavaFormat'
+compileJava.options.encoding = 'Cp1252'
+
 tasks.withType(JavaCompile) {
     options.encoding = 'Cp1252'
 }
@@ -69,5 +72,4 @@ dependencies {
 }
 
 compileJava.mustRunAfter 'sonarqube'
-compileJava.dependsOn 'googleJavaFormat'
 gradle.startParameter.continueOnFailure = true

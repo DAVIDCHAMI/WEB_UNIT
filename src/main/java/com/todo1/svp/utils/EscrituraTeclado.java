@@ -101,112 +101,112 @@ public class EscrituraTeclado {
     robot.keyRelease(VK_S);
   }
 
-  public static void escribirLetraD() {
+  private static void escribirLetraD() {
     robot.keyPress(VK_D);
     robot.keyRelease(VK_D);
   }
 
-  public static void escribirLetraF() {
+  private static void escribirLetraF() {
     robot.keyPress(VK_F);
     robot.keyRelease(VK_F);
   }
 
-  public static void escribirLetraG() {
+  private static void escribirLetraG() {
     robot.keyPress(VK_G);
     robot.keyRelease(VK_G);
   }
 
-  public static void escribirLetraH() {
+  private static void escribirLetraH() {
     robot.keyPress(VK_H);
     robot.keyRelease(VK_H);
   }
 
-  public static void escribirLetraJ() {
+  private static void escribirLetraJ() {
     robot.keyPress(VK_J);
     robot.keyRelease(VK_J);
   }
 
-  public static void escribirLetraK() {
+  private static void escribirLetraK() {
     robot.keyPress(VK_K);
     robot.keyRelease(VK_K);
   }
 
-  public static void escribirLetraL() {
+  private static void escribirLetraL() {
     robot.keyPress(VK_L);
     robot.keyRelease(VK_L);
   }
 
-  public static void escribirLetraM() {
+  private static void escribirLetraM() {
     robot.keyPress(VK_M);
     robot.keyRelease(VK_M);
   }
 
-  public static void escribirLetraN() {
+  private static void escribirLetraN() {
     robot.keyPress(VK_N);
     robot.keyRelease(VK_N);
   }
 
-  public static void escribirLetraB() {
+  private static void escribirLetraB() {
     robot.keyPress(VK_B);
     robot.keyRelease(VK_B);
   }
 
-  public static void escribirLetraV() {
+  private static void escribirLetraV() {
     robot.keyPress(VK_V);
     robot.keyRelease(VK_V);
   }
 
-  public static void escribirLetraC() {
+  private static void escribirLetraC() {
     robot.keyPress(VK_C);
     robot.keyRelease(VK_C);
   }
 
-  public static void escribirLetraX() {
+  private static void escribirLetraX() {
     robot.keyPress(VK_X);
     robot.keyRelease(VK_X);
   }
 
-  public static void escribirLetraZ() {
+  private static void escribirLetraZ() {
     robot.keyPress(VK_Z);
     robot.keyRelease(VK_Z);
   }
 
-  public static void escribirLetraQ() {
+  private static void escribirLetraQ() {
     robot.keyPress(VK_Q);
     robot.keyRelease(VK_Q);
   }
 
-  public static void escribirLetraW() {
+  private static void escribirLetraW() {
     robot.keyPress(VK_W);
     robot.keyRelease(VK_W);
   }
 
-  public static void escribirLetraE() {
+  private static void escribirLetraE() {
     robot.keyPress(VK_E);
     robot.keyRelease(VK_E);
   }
 
-  public static void escribirLetraR() {
+  private static void escribirLetraR() {
     robot.keyPress(VK_R);
     robot.keyRelease(VK_R);
   }
 
-  public static void escribirLetraT() {
+  private static void escribirLetraT() {
     robot.keyPress(VK_T);
     robot.keyRelease(VK_T);
   }
 
-  public static void escribirLetraY() {
+  private static void escribirLetraY() {
     robot.keyPress(VK_Y);
     robot.keyRelease(VK_Y);
   }
 
-  public static void escribirLetraU() {
+  private static void escribirLetraU() {
     robot.keyPress(VK_U);
     robot.keyRelease(VK_U);
   }
 
-  public static void escribirLetraI() {
+  private static void escribirLetraI() {
     robot.keyPress(VK_I);
     robot.keyRelease(VK_I);
   }
@@ -314,7 +314,7 @@ public class EscrituraTeclado {
     robot.keyRelease(VK_ALT);
   }
 
-  public static void escribirMenorQue() {
+  private static void escribirMenorQue() {
     robot.keyPress(VK_ALT);
     robot.keyPress(VK_NUMPAD6);
     robot.keyPress(VK_NUMPAD0);
@@ -408,7 +408,7 @@ public class EscrituraTeclado {
     robot.keyRelease(VK_ALT);
   }
 
-  public static void escribirCerraCorchete() {
+  private static void escribirCerraCorchete() {
     robot.keyPress(VK_ALT);
     robot.keyPress(VK_NUMPAD9);
     robot.keyPress(VK_NUMPAD3);
