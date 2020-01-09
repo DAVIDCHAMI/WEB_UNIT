@@ -16,6 +16,7 @@ buildscript {
     dependencies {
         classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.40")
         classpath "gradle.plugin.com.github.sherter.google-java-format:google-java-format-gradle-plugin:0.6"
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6.2"
     }
 }
 
@@ -24,6 +25,7 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'net.serenity-bdd.aggregator'
 apply plugin: 'com.github.sherter.google-java-format'
+apply plugin: 'org.sonarqube'
 
 tasks.withType(JavaCompile) {
     options.encoding = 'Cp1252'
@@ -43,6 +45,17 @@ ext {
     serenityCucumberVersion = '1.0.4'
 }
 
+sonarqube {
+    properties {
+        property "sonar.projectKey", "svp"
+        property "sonar.projectName", "svp"
+        property "sonar.projectVersion", "1.0"
+        property "sonar.sources", "src/main"
+        property "sonar.java.binaries", "build"
+        property "sonar.test", "src/test"
+    }
+}
+
 dependencies {
     testImplementation "net.serenity-bdd:serenity-core:$rootProject.ext.serenityVersion"
     testImplementation "net.serenity-bdd:serenity-junit:$rootProject.ext.serenityVersion"
@@ -55,5 +68,6 @@ dependencies {
     implementation 'net.serenity-bdd:serenity-screenplay-webdriver:1.1.36'
 }
 
+compileJava.mustRunAfter 'sonarqube'
 compileJava.dependsOn 'googleJavaFormat'
 gradle.startParameter.continueOnFailure = true

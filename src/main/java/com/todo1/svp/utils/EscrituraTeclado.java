@@ -1,463 +1,524 @@
 package com.todo1.svp.utils;
 
+import static java.awt.event.KeyEvent.*;
+
 import java.awt.*;
-import java.awt.event.KeyEvent;
+import java.util.HashMap;
+import java.util.Map;
 
 public class EscrituraTeclado {
 
   private static Robot robot;
+  private static Map<Character, Runnable> caracteres;
+
+  static {
+    caracteres = new HashMap<>();
+    caracteres.put('@', EscrituraTeclado::escribirArroba);
+    caracteres.put('!', EscrituraTeclado::escribirCerrarSignoExclamacion);
+    caracteres.put('¡', EscrituraTeclado::escribirAbrirSignoExclamacion);
+    caracteres.put('#', EscrituraTeclado::escribirAlmohadilla);
+    caracteres.put('$', EscrituraTeclado::escribirSignoPesos);
+    caracteres.put('%', EscrituraTeclado::escribirSignoPorcentaje);
+    caracteres.put('&', EscrituraTeclado::escribirEtLatina);
+    caracteres.put('/', EscrituraTeclado::escribirBarraInclinada);
+    caracteres.put('(', EscrituraTeclado::escribirAbrirParentesisParentesis);
+    caracteres.put(')', EscrituraTeclado::escribirCerrarParentesisParentesis);
+    caracteres.put('?', EscrituraTeclado::escribirCerrarSignoInterrogacion);
+    caracteres.put('¿', EscrituraTeclado::escribirAbrirSignoInterrogacion);
+    caracteres.put('*', EscrituraTeclado::escribirAsterisco);
+    caracteres.put('[', EscrituraTeclado::escribirAbrirCorchete);
+    caracteres.put(']', EscrituraTeclado::escribirCerraCorchete);
+    caracteres.put(';', EscrituraTeclado::escribirPuntoComa);
+    caracteres.put(':', EscrituraTeclado::escribirDosPuntos);
+    caracteres.put('_', EscrituraTeclado::escribirGuionBajo);
+    caracteres.put('-', EscrituraTeclado::escribirGuionMedio);
+    caracteres.put('"', EscrituraTeclado::escribirComillas);
+    caracteres.put('+', EscrituraTeclado::escribirSignoMas);
+    caracteres.put('{', EscrituraTeclado::escribirAbrirLlaveCurva);
+    caracteres.put('}', EscrituraTeclado::escribirCerrarLLaveCurva);
+    caracteres.put('>', EscrituraTeclado::escribirMayorQue);
+    caracteres.put('<', EscrituraTeclado::escribirMenorQue);
+    caracteres.put('ñ', EscrituraTeclado::escribirEnie);
+    caracteres.put('=', EscrituraTeclado::escribirSignoIgual);
+    caracteres.put('.', EscrituraTeclado::escribirPunto);
+    caracteres.put(',', EscrituraTeclado::escribirComa);
+    caracteres.put('a', EscrituraTeclado::escribirLetraA);
+    caracteres.put('s', EscrituraTeclado::escribirLetraS);
+    caracteres.put('d', EscrituraTeclado::escribirLetraD);
+    caracteres.put('f', EscrituraTeclado::escribirLetraF);
+    caracteres.put('g', EscrituraTeclado::escribirLetraG);
+    caracteres.put('h', EscrituraTeclado::escribirLetraH);
+    caracteres.put('j', EscrituraTeclado::escribirLetraJ);
+    caracteres.put('k', EscrituraTeclado::escribirLetraK);
+    caracteres.put('l', EscrituraTeclado::escribirLetraL);
+    caracteres.put('m', EscrituraTeclado::escribirLetraM);
+    caracteres.put('n', EscrituraTeclado::escribirLetraN);
+    caracteres.put('b', EscrituraTeclado::escribirLetraB);
+    caracteres.put('v', EscrituraTeclado::escribirLetraV);
+    caracteres.put('c', EscrituraTeclado::escribirLetraC);
+    caracteres.put('x', EscrituraTeclado::escribirLetraX);
+    caracteres.put('z', EscrituraTeclado::escribirLetraZ);
+    caracteres.put('q', EscrituraTeclado::escribirLetraQ);
+    caracteres.put('w', EscrituraTeclado::escribirLetraW);
+    caracteres.put('e', EscrituraTeclado::escribirLetraE);
+    caracteres.put('r', EscrituraTeclado::escribirLetraR);
+    caracteres.put('t', EscrituraTeclado::escribirLetraT);
+    caracteres.put('y', EscrituraTeclado::escribirLetraY);
+    caracteres.put('u', EscrituraTeclado::escribirLetraU);
+    caracteres.put('i', EscrituraTeclado::escribirLetraI);
+    caracteres.put('o', EscrituraTeclado::escribirLetraO);
+    caracteres.put('p', EscrituraTeclado::escribirLetraP);
+    caracteres.put('1', EscrituraTeclado::escribirNumero1);
+    caracteres.put('2', EscrituraTeclado::escribirNumero2);
+    caracteres.put('3', EscrituraTeclado::escribirNumero3);
+    caracteres.put('4', EscrituraTeclado::escribirNumero4);
+    caracteres.put('5', EscrituraTeclado::escribirNumero5);
+    caracteres.put('6', EscrituraTeclado::escribirNumero6);
+    caracteres.put('7', EscrituraTeclado::escribirNumero7);
+    caracteres.put('8', EscrituraTeclado::escribirNumero8);
+    caracteres.put('9', EscrituraTeclado::escribirNumero9);
+    caracteres.put('0', EscrituraTeclado::escribirNumero0);
+  }
 
   private EscrituraTeclado() {}
 
-  public static void caracterTeclado(char caracter) throws AWTException {
+  public static void escribirCaracter(char caracter) throws AWTException {
     robot = new Robot();
-    switch (caracter) {
-      case '@':
-        escribirArroba();
-        break;
-      case '!':
-        escribirSignoExclamacion();
-        break;
-      case '#':
-        escribirAlmohadilla();
-        break;
-      case '$':
-        escribirSignoPesos();
-        break;
-      case '%':
-        escribirSignoPorcentaje();
-        break;
-      case '&':
-        escribirEtLatina();
-        break;
-      case '/':
-        escribirBarraInclinada();
-        break;
-      case '(':
-      case ')':
-        escribirParentesis(caracter);
-        break;
-      case '?':
-        escribirSignoInterrogacion();
-        break;
-      case '*':
-        escribirAsterisco();
-        break;
-      case '[':
-        escribirCorchetes(caracter);
-        break;
-      case ']':
-        escribirCorchetes(caracter);
-        break;
-      case ';':
-        escribirPuntoComa();
-        break;
-      case ':':
-        escribirDosPuntos();
-        break;
-      case '_':
-        escribirGuionBajo();
-        break;
-      case '-':
-        escribirGuionMedio();
-        break;
-      case '"':
-        escribirComillas();
-        break;
-      case '+':
-        escribirSignoMas();
-        break;
-      case '}':
-      case '{':
-        escribirLlaveCurva(caracter);
-        break;
-      case '<':
-      case '>':
-        escribirMenorQueMayorQue(caracter);
-        break;
-      case 'ñ':
-        escribirEnie();
-        break;
-      case '=':
-        escribirSignoIgual();
-        break;
-      case ',':
-        escribirComa();
-        break;
-      case 'a':
-        robot.keyPress(KeyEvent.VK_A);
-        robot.keyRelease(KeyEvent.VK_A);
-        break;
-      case 's':
-        robot.keyPress(KeyEvent.VK_S);
-        robot.keyRelease(KeyEvent.VK_S);
-        break;
-      case 'd':
-        robot.keyPress(KeyEvent.VK_D);
-        robot.keyRelease(KeyEvent.VK_D);
-        break;
-      case 'f':
-        robot.keyPress(KeyEvent.VK_F);
-        robot.keyRelease(KeyEvent.VK_F);
-        break;
-      case 'g':
-        robot.keyPress(KeyEvent.VK_G);
-        robot.keyRelease(KeyEvent.VK_G);
-        break;
-      case 'h':
-        robot.keyPress(KeyEvent.VK_H);
-        robot.keyRelease(KeyEvent.VK_H);
-        break;
-      case 'j':
-        robot.keyPress(KeyEvent.VK_J);
-        robot.keyRelease(KeyEvent.VK_J);
-        break;
-      case 'k':
-        robot.keyPress(KeyEvent.VK_K);
-        robot.keyRelease(KeyEvent.VK_K);
-        break;
-      case 'l':
-        robot.keyPress(KeyEvent.VK_L);
-        robot.keyRelease(KeyEvent.VK_L);
-        break;
-      case 'm':
-        robot.keyPress(KeyEvent.VK_M);
-        robot.keyRelease(KeyEvent.VK_M);
-        break;
-      case 'n':
-        robot.keyPress(KeyEvent.VK_N);
-        robot.keyRelease(KeyEvent.VK_N);
-        break;
-      case 'b':
-        robot.keyPress(KeyEvent.VK_B);
-        robot.keyRelease(KeyEvent.VK_B);
-        break;
-      case 'v':
-        robot.keyPress(KeyEvent.VK_V);
-        robot.keyRelease(KeyEvent.VK_V);
-        break;
-      case 'c':
-        robot.keyPress(KeyEvent.VK_C);
-        robot.keyRelease(KeyEvent.VK_C);
-        break;
-      case 'x':
-        robot.keyPress(KeyEvent.VK_X);
-        robot.keyRelease(KeyEvent.VK_X);
-        break;
-      case 'z':
-        robot.keyPress(KeyEvent.VK_Z);
-        robot.keyRelease(KeyEvent.VK_Z);
-        break;
-      case 'q':
-        robot.keyPress(KeyEvent.VK_Q);
-        robot.keyRelease(KeyEvent.VK_Q);
-        break;
-      case 'w':
-        robot.keyPress(KeyEvent.VK_W);
-        robot.keyRelease(KeyEvent.VK_W);
-        break;
-      case 'e':
-        robot.keyPress(KeyEvent.VK_E);
-        robot.keyRelease(KeyEvent.VK_E);
-        break;
-      case 'r':
-        robot.keyPress(KeyEvent.VK_R);
-        robot.keyRelease(KeyEvent.VK_R);
-        break;
-      case 't':
-        robot.keyPress(KeyEvent.VK_T);
-        robot.keyRelease(KeyEvent.VK_T);
-        break;
-      case 'y':
-        robot.keyPress(KeyEvent.VK_Y);
-        robot.keyRelease(KeyEvent.VK_Y);
-        break;
-      case 'u':
-        robot.keyPress(KeyEvent.VK_U);
-        robot.keyRelease(KeyEvent.VK_U);
-        break;
-      case 'i':
-        robot.keyPress(KeyEvent.VK_I);
-        robot.keyRelease(KeyEvent.VK_I);
-        break;
-      case 'o':
-        robot.keyPress(KeyEvent.VK_O);
-        robot.keyRelease(KeyEvent.VK_O);
-        break;
-      case 'p':
-        robot.keyPress(KeyEvent.VK_P);
-        robot.keyRelease(KeyEvent.VK_P);
-        break;
-      case '1':
-        robot.keyPress(KeyEvent.VK_1);
-        robot.keyRelease(KeyEvent.VK_1);
-        break;
-      case '2':
-        robot.keyPress(KeyEvent.VK_2);
-        robot.keyRelease(KeyEvent.VK_2);
-        break;
-      case '3':
-        robot.keyPress(KeyEvent.VK_3);
-        robot.keyRelease(KeyEvent.VK_3);
-        break;
-      case '4':
-        robot.keyPress(KeyEvent.VK_4);
-        robot.keyRelease(KeyEvent.VK_4);
-        break;
-      case '5':
-        robot.keyPress(KeyEvent.VK_5);
-        robot.keyRelease(KeyEvent.VK_5);
-        break;
-      case '6':
-        robot.keyPress(KeyEvent.VK_6);
-        robot.keyRelease(KeyEvent.VK_6);
-        break;
-      case '7':
-        robot.keyPress(KeyEvent.VK_7);
-        robot.keyRelease(KeyEvent.VK_7);
-        break;
-      case '8':
-        robot.keyPress(KeyEvent.VK_8);
-        robot.keyRelease(KeyEvent.VK_8);
-        break;
-      case '9':
-        robot.keyPress(KeyEvent.VK_NUMPAD9);
-        robot.keyRelease(KeyEvent.VK_NUMPAD9);
-        break;
-      case '0':
-        robot.keyPress(KeyEvent.VK_NUMPAD0);
-        robot.keyRelease(KeyEvent.VK_NUMPAD0);
-        break;
-      case '.':
-        robot.keyPress(KeyEvent.VK_PERIOD);
-        robot.keyRelease(KeyEvent.VK_PERIOD);
-        break;
-      default:
-        robot.delay(100);
+    if (caracteres.containsKey(caracter)) {
+      caracteres.get(caracter).run();
+    } else {
+      throw new IllegalArgumentException("No se encuentra mapeado el caracter con Robot");
     }
+  }
+
+  private static void escribirLetraA() {
+    robot.keyPress(VK_A);
+    robot.keyRelease(VK_A);
+  }
+
+  private static void escribirLetraS() {
+    robot.keyPress(VK_S);
+    robot.keyRelease(VK_S);
+  }
+
+  public static void escribirLetraD() {
+    robot.keyPress(VK_D);
+    robot.keyRelease(VK_D);
+  }
+
+  public static void escribirLetraF() {
+    robot.keyPress(VK_F);
+    robot.keyRelease(VK_F);
+  }
+
+  public static void escribirLetraG() {
+    robot.keyPress(VK_G);
+    robot.keyRelease(VK_G);
+  }
+
+  public static void escribirLetraH() {
+    robot.keyPress(VK_H);
+    robot.keyRelease(VK_H);
+  }
+
+  public static void escribirLetraJ() {
+    robot.keyPress(VK_J);
+    robot.keyRelease(VK_J);
+  }
+
+  public static void escribirLetraK() {
+    robot.keyPress(VK_K);
+    robot.keyRelease(VK_K);
+  }
+
+  public static void escribirLetraL() {
+    robot.keyPress(VK_L);
+    robot.keyRelease(VK_L);
+  }
+
+  public static void escribirLetraM() {
+    robot.keyPress(VK_M);
+    robot.keyRelease(VK_M);
+  }
+
+  public static void escribirLetraN() {
+    robot.keyPress(VK_N);
+    robot.keyRelease(VK_N);
+  }
+
+  public static void escribirLetraB() {
+    robot.keyPress(VK_B);
+    robot.keyRelease(VK_B);
+  }
+
+  public static void escribirLetraV() {
+    robot.keyPress(VK_V);
+    robot.keyRelease(VK_V);
+  }
+
+  public static void escribirLetraC() {
+    robot.keyPress(VK_C);
+    robot.keyRelease(VK_C);
+  }
+
+  public static void escribirLetraX() {
+    robot.keyPress(VK_X);
+    robot.keyRelease(VK_X);
+  }
+
+  public static void escribirLetraZ() {
+    robot.keyPress(VK_Z);
+    robot.keyRelease(VK_Z);
+  }
+
+  public static void escribirLetraQ() {
+    robot.keyPress(VK_Q);
+    robot.keyRelease(VK_Q);
+  }
+
+  public static void escribirLetraW() {
+    robot.keyPress(VK_W);
+    robot.keyRelease(VK_W);
+  }
+
+  public static void escribirLetraE() {
+    robot.keyPress(VK_E);
+    robot.keyRelease(VK_E);
+  }
+
+  public static void escribirLetraR() {
+    robot.keyPress(VK_R);
+    robot.keyRelease(VK_R);
+  }
+
+  public static void escribirLetraT() {
+    robot.keyPress(VK_T);
+    robot.keyRelease(VK_T);
+  }
+
+  public static void escribirLetraY() {
+    robot.keyPress(VK_Y);
+    robot.keyRelease(VK_Y);
+  }
+
+  public static void escribirLetraU() {
+    robot.keyPress(VK_U);
+    robot.keyRelease(VK_U);
+  }
+
+  public static void escribirLetraI() {
+    robot.keyPress(VK_I);
+    robot.keyRelease(VK_I);
+  }
+
+  private static void escribirLetraO() {
+    robot.keyPress(VK_O);
+    robot.keyRelease(VK_O);
+  }
+
+  private static void escribirLetraP() {
+    robot.keyPress(VK_P);
+    robot.keyRelease(VK_P);
+  }
+
+  private static void escribirNumero1() {
+    robot.keyPress(VK_1);
+    robot.keyRelease(VK_1);
+  }
+
+  private static void escribirNumero2() {
+    robot.keyPress(VK_2);
+    robot.keyRelease(VK_2);
+  }
+
+  private static void escribirNumero3() {
+    robot.keyPress(VK_3);
+    robot.keyRelease(VK_3);
+  }
+
+  private static void escribirNumero4() {
+    robot.keyPress(VK_4);
+    robot.keyRelease(VK_4);
+  }
+
+  private static void escribirNumero5() {
+    robot.keyPress(VK_5);
+    robot.keyRelease(VK_5);
+  }
+
+  private static void escribirNumero6() {
+    robot.keyPress(VK_6);
+    robot.keyRelease(VK_6);
+  }
+
+  private static void escribirNumero7() {
+    robot.keyPress(VK_7);
+    robot.keyRelease(VK_7);
+  }
+
+  private static void escribirNumero8() {
+    robot.keyPress(VK_8);
+    robot.keyRelease(VK_8);
+  }
+
+  private static void escribirNumero9() {
+    robot.keyPress(VK_9);
+    robot.keyRelease(VK_9);
+  }
+
+  private static void escribirNumero0() {
+    robot.keyPress(VK_0);
+    robot.keyRelease(VK_0);
+  }
+
+  private static void escribirPunto() {
+    robot.keyPress(VK_PERIOD);
+    robot.keyRelease(VK_PERIOD);
   }
 
   private static void escribirComa() {
-    robot.keyPress(KeyEvent.VK_ALT);
-    robot.keyPress(KeyEvent.VK_NUMPAD4);
-    robot.keyPress(KeyEvent.VK_NUMPAD4);
-    robot.keyRelease(KeyEvent.VK_NUMPAD4);
-    robot.keyRelease(KeyEvent.VK_NUMPAD4);
-    robot.keyRelease(KeyEvent.VK_ALT);
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD4);
+    robot.keyPress(VK_NUMPAD4);
+    robot.keyRelease(VK_NUMPAD4);
+    robot.keyRelease(VK_NUMPAD4);
+    robot.keyRelease(VK_ALT);
   }
 
   private static void escribirSignoIgual() {
-    robot.keyPress(KeyEvent.VK_ALT);
-    robot.keyPress(KeyEvent.VK_NUMPAD6);
-    robot.keyPress(KeyEvent.VK_NUMPAD1);
-    robot.keyRelease(KeyEvent.VK_NUMPAD1);
-    robot.keyRelease(KeyEvent.VK_NUMPAD6);
-    robot.keyRelease(KeyEvent.VK_ALT);
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD6);
+    robot.keyPress(VK_NUMPAD1);
+    robot.keyRelease(VK_NUMPAD1);
+    robot.keyRelease(VK_NUMPAD6);
+    robot.keyRelease(VK_ALT);
   }
 
   private static void escribirEnie() {
-    robot.keyPress(KeyEvent.VK_ALT);
-    robot.keyPress(KeyEvent.VK_NUMPAD1);
-    robot.keyPress(KeyEvent.VK_NUMPAD6);
-    robot.keyPress(KeyEvent.VK_NUMPAD4);
-    robot.keyRelease(KeyEvent.VK_NUMPAD4);
-    robot.keyRelease(KeyEvent.VK_NUMPAD6);
-    robot.keyRelease(KeyEvent.VK_NUMPAD1);
-    robot.keyRelease(KeyEvent.VK_ALT);
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD1);
+    robot.keyPress(VK_NUMPAD6);
+    robot.keyPress(VK_NUMPAD4);
+    robot.keyRelease(VK_NUMPAD4);
+    robot.keyRelease(VK_NUMPAD6);
+    robot.keyRelease(VK_NUMPAD1);
+    robot.keyRelease(VK_ALT);
   }
 
-  private static void escribirMenorQueMayorQue(char caracter) {
-    if ("<".equals(Character.toString(caracter))) {
-      robot.keyPress(KeyEvent.VK_ALT);
-      robot.keyPress(KeyEvent.VK_NUMPAD6);
-      robot.keyPress(KeyEvent.VK_NUMPAD0);
-      robot.keyRelease(KeyEvent.VK_NUMPAD0);
-      robot.keyRelease(KeyEvent.VK_NUMPAD6);
-      robot.keyRelease(KeyEvent.VK_ALT);
-    } else {
-      robot.keyPress(KeyEvent.VK_ALT);
-      robot.keyPress(KeyEvent.VK_NUMPAD6);
-      robot.keyPress(KeyEvent.VK_NUMPAD2);
-      robot.keyRelease(KeyEvent.VK_NUMPAD2);
-      robot.keyRelease(KeyEvent.VK_NUMPAD6);
-      robot.keyRelease(KeyEvent.VK_ALT);
-    }
+  private static void escribirMayorQue() {
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD6);
+    robot.keyPress(VK_NUMPAD2);
+    robot.keyRelease(VK_NUMPAD2);
+    robot.keyRelease(VK_NUMPAD6);
+    robot.keyRelease(VK_ALT);
   }
 
-  private static void escribirLlaveCurva(char caracter) {
-    if ("}".equals(Character.toString(caracter))) {
-      robot.keyPress(KeyEvent.VK_ALT);
-      robot.keyPress(KeyEvent.VK_NUMPAD1);
-      robot.keyPress(KeyEvent.VK_NUMPAD2);
-      robot.keyPress(KeyEvent.VK_NUMPAD5);
-      robot.keyRelease(KeyEvent.VK_NUMPAD5);
-      robot.keyRelease(KeyEvent.VK_NUMPAD2);
-      robot.keyRelease(KeyEvent.VK_NUMPAD1);
-      robot.keyRelease(KeyEvent.VK_ALT);
-    } else {
-      robot.keyPress(KeyEvent.VK_ALT);
-      robot.keyPress(KeyEvent.VK_NUMPAD1);
-      robot.keyPress(KeyEvent.VK_NUMPAD2);
-      robot.keyPress(KeyEvent.VK_NUMPAD3);
-      robot.keyRelease(KeyEvent.VK_NUMPAD3);
-      robot.keyRelease(KeyEvent.VK_NUMPAD2);
-      robot.keyRelease(KeyEvent.VK_NUMPAD1);
-      robot.keyRelease(KeyEvent.VK_ALT);
-    }
+  public static void escribirMenorQue() {
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD6);
+    robot.keyPress(VK_NUMPAD0);
+    robot.keyRelease(VK_NUMPAD0);
+    robot.keyRelease(VK_NUMPAD6);
+    robot.keyRelease(VK_ALT);
+  }
+
+  private static void escribirAbrirLlaveCurva() {
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD1);
+    robot.keyPress(VK_NUMPAD2);
+    robot.keyPress(VK_NUMPAD3);
+    robot.keyRelease(VK_NUMPAD3);
+    robot.keyRelease(VK_NUMPAD2);
+    robot.keyRelease(VK_NUMPAD1);
+    robot.keyRelease(VK_ALT);
+  }
+
+  private static void escribirCerrarLLaveCurva() {
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD1);
+    robot.keyPress(VK_NUMPAD2);
+    robot.keyPress(VK_NUMPAD5);
+    robot.keyRelease(VK_NUMPAD5);
+    robot.keyRelease(VK_NUMPAD2);
+    robot.keyRelease(VK_NUMPAD1);
+    robot.keyPress(VK_ALT);
   }
 
   private static void escribirSignoMas() {
-    robot.keyPress(KeyEvent.VK_ALT);
-    robot.keyPress(KeyEvent.VK_NUMPAD4);
-    robot.keyPress(KeyEvent.VK_NUMPAD3);
-    robot.keyRelease(KeyEvent.VK_NUMPAD3);
-    robot.keyRelease(KeyEvent.VK_NUMPAD4);
-    robot.keyRelease(KeyEvent.VK_ALT);
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD4);
+    robot.keyPress(VK_NUMPAD3);
+    robot.keyRelease(VK_NUMPAD3);
+    robot.keyRelease(VK_NUMPAD4);
+    robot.keyRelease(VK_ALT);
   }
 
   private static void escribirComillas() {
-    robot.keyPress(KeyEvent.VK_ALT);
-    robot.keyPress(KeyEvent.VK_NUMPAD3);
-    robot.keyPress(KeyEvent.VK_NUMPAD4);
-    robot.keyRelease(KeyEvent.VK_NUMPAD4);
-    robot.keyRelease(KeyEvent.VK_NUMPAD3);
-    robot.keyRelease(KeyEvent.VK_ALT);
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD3);
+    robot.keyPress(VK_NUMPAD4);
+    robot.keyRelease(VK_NUMPAD4);
+    robot.keyRelease(VK_NUMPAD3);
+    robot.keyRelease(VK_ALT);
   }
 
   private static void escribirGuionMedio() {
-    robot.keyPress(KeyEvent.VK_ALT);
-    robot.keyPress(KeyEvent.VK_NUMPAD4);
-    robot.keyPress(KeyEvent.VK_NUMPAD5);
-    robot.keyRelease(KeyEvent.VK_NUMPAD5);
-    robot.keyRelease(KeyEvent.VK_NUMPAD4);
-    robot.keyRelease(KeyEvent.VK_ALT);
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD4);
+    robot.keyPress(VK_NUMPAD5);
+    robot.keyRelease(VK_NUMPAD5);
+    robot.keyRelease(VK_NUMPAD4);
+    robot.keyRelease(VK_ALT);
   }
 
   private static void escribirGuionBajo() {
-    robot.keyPress(KeyEvent.VK_ALT);
-    robot.keyPress(KeyEvent.VK_NUMPAD9);
-    robot.keyPress(KeyEvent.VK_NUMPAD5);
-    robot.keyRelease(KeyEvent.VK_NUMPAD5);
-    robot.keyRelease(KeyEvent.VK_NUMPAD9);
-    robot.keyRelease(KeyEvent.VK_ALT);
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD9);
+    robot.keyPress(VK_NUMPAD5);
+    robot.keyRelease(VK_NUMPAD5);
+    robot.keyRelease(VK_NUMPAD9);
+    robot.keyRelease(VK_ALT);
   }
 
   private static void escribirDosPuntos() {
-    robot.keyPress(KeyEvent.VK_ALT);
-    robot.keyPress(KeyEvent.VK_NUMPAD5);
-    robot.keyPress(KeyEvent.VK_NUMPAD8);
-    robot.keyRelease(KeyEvent.VK_NUMPAD8);
-    robot.keyRelease(KeyEvent.VK_NUMPAD5);
-    robot.keyRelease(KeyEvent.VK_ALT);
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD5);
+    robot.keyPress(VK_NUMPAD8);
+    robot.keyRelease(VK_NUMPAD8);
+    robot.keyRelease(VK_NUMPAD5);
+    robot.keyRelease(VK_ALT);
   }
 
   private static void escribirPuntoComa() {
-    robot.keyPress(KeyEvent.VK_ALT);
-    robot.keyPress(KeyEvent.VK_NUMPAD5);
-    robot.keyPress(KeyEvent.VK_NUMPAD9);
-    robot.keyRelease(KeyEvent.VK_NUMPAD9);
-    robot.keyRelease(KeyEvent.VK_NUMPAD5);
-    robot.keyRelease(KeyEvent.VK_ALT);
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD5);
+    robot.keyPress(VK_NUMPAD9);
+    robot.keyRelease(VK_NUMPAD9);
+    robot.keyRelease(VK_NUMPAD5);
+    robot.keyRelease(VK_ALT);
   }
 
-  private static void escribirCorchetes(char caracter) {
-    if ("[".equals(Character.toString(caracter))) {
-      robot.keyPress(KeyEvent.VK_ALT);
-      robot.keyPress(KeyEvent.VK_NUMPAD9);
-      robot.keyPress(KeyEvent.VK_NUMPAD1);
-      robot.keyRelease(KeyEvent.VK_NUMPAD1);
-      robot.keyRelease(KeyEvent.VK_NUMPAD9);
-      robot.keyRelease(KeyEvent.VK_ALT);
-    } else {
-      robot.keyPress(KeyEvent.VK_ALT);
-      robot.keyPress(KeyEvent.VK_NUMPAD9);
-      robot.keyPress(KeyEvent.VK_NUMPAD3);
-      robot.keyRelease(KeyEvent.VK_NUMPAD3);
-      robot.keyRelease(KeyEvent.VK_NUMPAD9);
-      robot.keyRelease(KeyEvent.VK_ALT);
-    }
+  private static void escribirAbrirCorchete() {
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD9);
+    robot.keyPress(VK_NUMPAD1);
+    robot.keyRelease(VK_NUMPAD1);
+    robot.keyRelease(VK_NUMPAD9);
+    robot.keyRelease(VK_ALT);
+  }
+
+  public static void escribirCerraCorchete() {
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD9);
+    robot.keyPress(VK_NUMPAD3);
+    robot.keyRelease(VK_NUMPAD3);
+    robot.keyRelease(VK_NUMPAD9);
+    robot.keyRelease(VK_ALT);
   }
 
   private static void escribirAsterisco() {
-    robot.keyPress(KeyEvent.VK_ALT);
-    robot.keyPress(KeyEvent.VK_NUMPAD4);
-    robot.keyPress(KeyEvent.VK_NUMPAD2);
-    robot.keyRelease(KeyEvent.VK_NUMPAD2);
-    robot.keyRelease(KeyEvent.VK_NUMPAD4);
-    robot.keyRelease(KeyEvent.VK_ALT);
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD4);
+    robot.keyPress(VK_NUMPAD2);
+    robot.keyRelease(VK_NUMPAD2);
+    robot.keyRelease(VK_NUMPAD4);
+    robot.keyRelease(VK_ALT);
   }
 
-  private static void escribirSignoInterrogacion() {
-    robot.keyPress(KeyEvent.VK_ALT);
-    robot.keyPress(KeyEvent.VK_NUMPAD6);
-    robot.keyPress(KeyEvent.VK_NUMPAD3);
-    robot.keyRelease(KeyEvent.VK_NUMPAD3);
-    robot.keyRelease(KeyEvent.VK_NUMPAD6);
-    robot.keyRelease(KeyEvent.VK_ALT);
+  private static void escribirAbrirSignoInterrogacion() {
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD1);
+    robot.keyPress(VK_NUMPAD6);
+    robot.keyPress(VK_NUMPAD8);
+    robot.keyRelease(VK_NUMPAD8);
+    robot.keyRelease(VK_NUMPAD6);
+    robot.keyRelease(VK_NUMPAD1);
+    robot.keyRelease(VK_ALT);
   }
 
-  private static void escribirParentesis(char caracter) {
-    if ("(".equals(Character.toString(caracter))) {
-      robot.keyPress(KeyEvent.VK_SHIFT);
-      robot.keyPress(KeyEvent.VK_8);
-      robot.keyRelease(KeyEvent.VK_8);
-      robot.keyRelease(KeyEvent.VK_SHIFT);
-    } else {
-      robot.keyPress(KeyEvent.VK_SHIFT);
-      robot.keyPress(KeyEvent.VK_9);
-      robot.keyRelease(KeyEvent.VK_9);
-      robot.keyRelease(KeyEvent.VK_SHIFT);
-    }
+  private static void escribirCerrarSignoInterrogacion() {
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD6);
+    robot.keyPress(VK_NUMPAD3);
+    robot.keyRelease(VK_NUMPAD3);
+    robot.keyRelease(VK_NUMPAD6);
+    robot.keyRelease(VK_ALT);
+  }
+
+  private static void escribirAbrirParentesisParentesis() {
+    robot.keyPress(VK_SHIFT);
+    robot.keyPress(VK_8);
+    robot.keyRelease(VK_8);
+    robot.keyRelease(VK_SHIFT);
+  }
+
+  private static void escribirCerrarParentesisParentesis() {
+    robot.keyPress(VK_SHIFT);
+    robot.keyPress(VK_9);
+    robot.keyRelease(VK_9);
+    robot.keyRelease(VK_SHIFT);
   }
 
   private static void escribirBarraInclinada() {
-    robot.keyPress(KeyEvent.VK_SHIFT);
-    robot.keyPress(KeyEvent.VK_7);
-    robot.keyRelease(KeyEvent.VK_7);
-    robot.keyRelease(KeyEvent.VK_SHIFT);
+    robot.keyPress(VK_SHIFT);
+    robot.keyPress(VK_7);
+    robot.keyRelease(VK_7);
+    robot.keyRelease(VK_SHIFT);
   }
 
   private static void escribirEtLatina() {
-    robot.keyPress(KeyEvent.VK_SHIFT);
-    robot.keyPress(KeyEvent.VK_6);
-    robot.keyRelease(KeyEvent.VK_6);
-    robot.keyRelease(KeyEvent.VK_SHIFT);
+    robot.keyPress(VK_SHIFT);
+    robot.keyPress(VK_6);
+    robot.keyRelease(VK_6);
+    robot.keyRelease(VK_SHIFT);
   }
 
   private static void escribirSignoPorcentaje() {
-    robot.keyPress(KeyEvent.VK_SHIFT);
-    robot.keyPress(KeyEvent.VK_5);
-    robot.keyRelease(KeyEvent.VK_5);
-    robot.keyRelease(KeyEvent.VK_SHIFT);
+    robot.keyPress(VK_SHIFT);
+    robot.keyPress(VK_5);
+    robot.keyRelease(VK_5);
+    robot.keyRelease(VK_SHIFT);
   }
 
   private static void escribirSignoPesos() {
-    robot.keyPress(KeyEvent.VK_SHIFT);
-    robot.keyPress(KeyEvent.VK_4);
-    robot.keyRelease(KeyEvent.VK_4);
-    robot.keyRelease(KeyEvent.VK_SHIFT);
+    robot.keyPress(VK_SHIFT);
+    robot.keyPress(VK_4);
+    robot.keyRelease(VK_4);
+    robot.keyRelease(VK_SHIFT);
   }
 
   private static void escribirArroba() {
-    robot.keyPress(KeyEvent.VK_CONTROL);
-    robot.keyPress(KeyEvent.VK_ALT);
-    robot.keyPress(KeyEvent.VK_Q);
-    robot.keyRelease(KeyEvent.VK_Q);
-    robot.keyRelease(KeyEvent.VK_ALT);
-    robot.keyRelease(KeyEvent.VK_CONTROL);
+    robot.keyPress(VK_CONTROL);
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_Q);
+    robot.keyRelease(VK_Q);
+    robot.keyRelease(VK_ALT);
+    robot.keyRelease(VK_CONTROL);
   }
 
-  private static void escribirSignoExclamacion() {
-    robot.keyPress(KeyEvent.VK_SHIFT);
-    robot.keyPress(KeyEvent.VK_1);
-    robot.keyRelease(KeyEvent.VK_1);
-    robot.keyRelease(KeyEvent.VK_SHIFT);
+  private static void escribirCerrarSignoExclamacion() {
+    robot.keyPress(VK_SHIFT);
+    robot.keyPress(VK_1);
+    robot.keyRelease(VK_1);
+    robot.keyRelease(VK_SHIFT);
+  }
+
+  private static void escribirAbrirSignoExclamacion() {
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_1);
+    robot.keyPress(VK_7);
+    robot.keyPress(VK_3);
+    robot.keyRelease(VK_3);
+    robot.keyRelease(VK_7);
+    robot.keyRelease(VK_1);
+    robot.keyRelease(VK_ALT);
   }
 
   private static void escribirAlmohadilla() {
-    robot.keyPress(KeyEvent.VK_SHIFT);
-    robot.keyPress(KeyEvent.VK_3);
-    robot.keyRelease(KeyEvent.VK_3);
-    robot.keyRelease(KeyEvent.VK_SHIFT);
+    robot.keyPress(VK_SHIFT);
+    robot.keyPress(VK_3);
+    robot.keyRelease(VK_3);
+    robot.keyRelease(VK_SHIFT);
   }
 }

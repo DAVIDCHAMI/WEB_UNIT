@@ -1,11 +1,9 @@
 package com.todo1.svp.tasks;
 
 import static com.todo1.svp.userinterfaces.UsuarioPage.*;
-import static com.todo1.svp.utils.EscrituraTeclado.caracterTeclado;
+import static com.todo1.svp.utils.EscrituraTeclado.escribirCaracter;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-import java.awt.*;
-import java.awt.Robot;
 import java.util.List;
 import java.util.Map;
 import net.serenitybdd.screenplay.Actor;
@@ -21,9 +19,8 @@ public class Escribir implements Task {
   private static final Logger LOGGER = LoggerFactory.getLogger(StepInterceptor.class);
 
   private List<Map<String, String>> campo;
-  Robot robot = new Robot();
 
-  public Escribir(List<Map<String, String>> campo) throws AWTException {
+  public Escribir(List<Map<String, String>> campo) {
     this.campo = campo;
   }
 
@@ -53,11 +50,11 @@ public class Escribir implements Task {
   private void escribirCampo(Actor actor, String campo, char[] caracteres, Target elemento) {
     actor.attemptsTo(Click.on(elemento.of(campo)));
     elemento.of(campo).resolveFor(actor).clear();
-    for (int i = 0; i < caracteres.length; i++) {
+    for (char caractere : caracteres) {
       try {
-        caracterTeclado(caracteres[i]);
-      } catch (AWTException e) {
-        LOGGER.info("No se escribio el caracter esperado", e);
+        escribirCaracter(caractere);
+      } catch (Exception e) {
+        LOGGER.error("No se escribio el caracter esperado", e);
       }
     }
   }
