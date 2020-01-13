@@ -1,7 +1,6 @@
 package com.todo1.svp.questions;
 
 import static com.todo1.svp.userinterfaces.UsuarioPage.CAMPO;
-import static com.todo1.svp.userinterfaces.UsuarioPage.CAMPO_CLAVE;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
@@ -22,12 +21,6 @@ public class NumeroCaracteresCampo implements Question<Boolean> {
 
   @Override
   public Boolean answeredBy(Actor actor) {
-    boolean resultado;
-    if ("clave".equals(campo)) {
-      resultado = CAMPO_CLAVE.of(campo).resolveFor(actor).getValue().length() == numeroCaracteres;
-    } else {
-      resultado = CAMPO.of(campo).resolveFor(actor).getValue().length() == numeroCaracteres;
-    }
-    return resultado;
+    return CAMPO.of(campo).resolveFor(actor).getValue().length() == numeroCaracteres;
   }
 }

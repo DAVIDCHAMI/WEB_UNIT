@@ -75,9 +75,41 @@ Característica: Pruebas unitarias campos en la pantalla registrar usuario
       | JuanCamilo1             | pepitoperez@todo1.com                   | 12345                          | Desabilitado     |
       | juan!"#$@@ññ""1ramos    | !j"u#a$n%&@todoñ1.net                   | ddeidb1234"#$&/*!"@123459cbc89 | Habilitado       |
 
-  Escenario: Verificación placeholder campos
+  Escenario: Verificación placeholder campos registrar pantalla usuario
     Cuando camilo ingresa a la pagina de registrar usuario
     Entonces el observa que el placeholder del campo esta correcto
       | Crea un usuario               |
       | Ingresa el correo electrónico |
       | Ingresa el número de celular  |
+
+  Esquema del escenario: Validaciones campo frase de seguridad
+    Dado que camilo quiere ingresar a la pagina de registrar frase de seguridad del usuario
+    Cuando el escribe en el campo
+      | Campo a escribir | palabra a escribir |
+      | frase            | <Diligenciar>      |
+    Entonces el observa que en el campo frase hay <Numero de caracteres> caracteres
+    Y el observa en pantalla el siguiente mensaje de error: <Mensaje de error>
+
+    Ejemplos:
+      | Diligenciar                                                             | Numero de caracteres | Mensaje de error                         |
+      | asd                                                                     | 3                    | Ingresa una frase mínimo de 4 caracteres |
+      | asdñ                                                                    | 4                    |                                          |
+      | 1234567890                                                              | 10                   |                                          |
+      | !"#$%&/()=?¡\'´¨*[];:_{}-.,+@                                           | 0                    | Ingresa una frase mínimo de 4 caracteres |
+      | Juan Camilo Múrcíá Rámós                                                | 24                   |                                          |
+      | qwertyuiop asdfghjklñ zxcvbnm @!"#$%&/()= qwertyuiop asdfghjklñ zxcvbnm | 50                   |                                          |
+
+  Esquema del escenario: Validaciones campo Type list categoria imagenes
+    Dado que camilo quiere ingresar a la pagina de registrar imagen de seguridad del usuario
+    Cuando el selecciona una categoría: <Categoria>
+    Entonces el observa que el placeholder del campo esta correcto
+      | <Categoria> |
+
+    Ejemplos:
+      | Categoria                  |
+      | Deportes y Entretenimiento |
+      | Negocios y Tecnología      |
+      | Naturaleza y Animales      |
+      | Hogar                      |
+      | Alimentos y Bebidas        |
+      | Viajes y Cultura           |

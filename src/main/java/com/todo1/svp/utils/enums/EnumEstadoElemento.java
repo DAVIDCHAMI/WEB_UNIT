@@ -6,7 +6,7 @@ public enum EnumEstadoElemento {
 
   private Boolean valor;
 
-  private EnumEstadoElemento(Boolean valor) {
+  EnumEstadoElemento(Boolean valor) {
     this.valor = valor;
   }
 

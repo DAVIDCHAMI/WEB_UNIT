@@ -59,3 +59,50 @@ Característica: Verificar texto y botones en pantalla
       | Debe tener entre 8 y 20 caracteres, usa letras y mínimo un número                                                                                                 |
       | Debe tener entre 6 y 38 caracteres                                                                                                                                |
     Y el observa que el boton: cancelar esta Habilitado
+
+  @pantalla_registrar_usuario_(frase_de_seguridad)
+  Escenario: Verificar texto en la pantalla registrar usuario (Frase de seguridad)
+    Cuando que camilo quiere ingresar a la pagina de registrar frase de seguridad del usuario
+    Entonces el observa los textos correctamente
+      | Registrar usuario                                                                                                       |
+      | Selecciona una imagen y asígnale una frase de seguridad que recuerdes fácilmente cada vez que ingreses a la aplicación. |
+      | Aceptotérminos y condiciones                                                                                            |
+    Y el observa que el boton: seleccionar otra imagen esta Habilitado
+    Y el observa que el boton: volver esta Habilitado
+    Y el observa que el boton: continuar esta Desabilitado
+
+  @pantalla_registrar_usuario_(imagen_de_seguridad)
+  Escenario: Verificar texto en la pantalla registrar usuario (Imagen de seguridad)
+    Cuando que camilo quiere ingresar a la pagina de registrar imagen de seguridad del usuario
+    Entonces el observa los textos correctamente
+      | Registrar usuario                               |
+      | Selecciona una imagen que recuerdes fácilmente. |
+      | Ver más imágenes                                |
+    Y el observa que el boton: volver esta Habilitado
+    Y el observa que el boton: continuar esta Desabilitado
+
+  @pantalla_registrar_usuario_(verificar_el_registro)
+  Escenario: Verificar texto en la pantalla registrar usuario (Verificar el registro)
+    Cuando que camilo quiere ingresar a la pagina de verificar registro
+    Entonces el observa los textos correctamente
+      | Registrar usuario    |
+      | Verifica el registro |
+      | Número de celular    |
+      | Correo electrónico   |
+      | Usuario              |
+    Y el observa que el boton: cancelar esta Habilitado
+    Y el observa que el boton: volver esta Habilitado
+    Y el observa que el boton: registrar esta Habilitado
+
+  @pantalla_registrar_usuario_(confirmar_registro)
+  Escenario: Verificar texto en la pantalla registrar usuario (Verificar el registro)
+    Cuando que camilo quiere ingresar a la pagina de confirmar registro
+    Entonces el observa los textos correctamente
+      | Registrar usuario        |
+      | ¡Registro exitoso!       |
+      | Número de celular        |
+      | Correo electrónico       |
+      | Usuario                  |
+      | Comprobante No           |
+      | Fecha y hora transacción |
+    Y el observa que el boton: continuar esta Habilitado
