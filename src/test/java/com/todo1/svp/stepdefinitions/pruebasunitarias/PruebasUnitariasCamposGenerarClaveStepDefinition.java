@@ -7,7 +7,7 @@ import cucumber.api.java.es.Cuando;
 
 public class PruebasUnitariasCamposGenerarClaveStepDefinition {
 
-  @Cuando("el selecciona un (.*): (.*)")
+  @Cuando("^el selecciona (?:un|una) (.*): (.*)?")
   public void seleccionarDocumento(String nombreCampo, String opcionSeleccionar) {
     theActorInTheSpotlight().attemptsTo(Seleccionar.opcionLista(nombreCampo, opcionSeleccionar));
   }

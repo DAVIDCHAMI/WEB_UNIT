@@ -1,6 +1,6 @@
 package com.todo1.svp.questions;
 
-import static com.todo1.svp.userinterfaces.UsuarioPage.CAMPO_CLAVE;
+import static com.todo1.svp.userinterfaces.UsuarioPage.CAMPO;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
@@ -21,6 +21,12 @@ public class UltimoCaracter implements Question<Boolean> {
 
   @Override
   public Boolean answeredBy(Actor actor) {
-    return CAMPO_CLAVE.of(nombreCampo).resolveFor(actor).getValue().equals(ultimoCaracter);
+    boolean resultado;
+    if ("clave".equalsIgnoreCase(nombreCampo)) {
+      resultado = CAMPO.of("").resolveFor(actor).getValue().equals(ultimoCaracter);
+    } else {
+      resultado = CAMPO.of(nombreCampo).resolveFor(actor).getValue().equals(ultimoCaracter);
+    }
+    return resultado;
   }
 }

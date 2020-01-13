@@ -6,9 +6,8 @@ import org.openqa.selenium.By;
 public class UsuarioPage {
   public static final Target CAMPO =
       Target.the("Campo {0}")
-          .locatedBy(".//input/../../../..//span[contains(.,'{0}')]/../../..//input");
-  public static final Target CAMPO_CLAVE =
-      Target.the("Campo {0}").locatedBy("//span[contains(.,'{0}')]/../../..//input");
+          .locatedBy(
+              "//*[self::input or self::textarea]/../../../../../../..//span[contains(.,'{0}')]//following::*[self::input[not(@type='checkbox')] or self::textarea][1]");
   public static final Target BOTON_PRINCIPAL =
       Target.the("Boton {0}").locatedBy(".//button[contains(.,'{0}')]");
   public static final Target MENSAJE_VALIDACION =

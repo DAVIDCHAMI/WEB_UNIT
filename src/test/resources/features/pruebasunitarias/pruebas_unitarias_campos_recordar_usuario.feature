@@ -15,14 +15,14 @@ Característica: Pruebas unitarias campos en la pantalla recordar usuario
     Y el observa en pantalla el siguiente mensaje de error: <Mensaje de error>
 
     Ejemplos:
-      | Diligenciar        | Numero de caracteres | Mensaje de error                         |
-      | 0                  | 0                    | Ingresa un documento mínimo de 5 dígitos |
-      | 1234               | 4                    | Ingresa un documento mínimo de 5 dígitos |
-      | 12345              | 5                    |                                          |
-      | 123456789012345456 | 15                   |                                          |
-      | ajdjdijdeijd       | 0                    | Ingresa un documento mínimo de 5 dígitos |
-      | !"#$%&&//())@      | 0                    | Ingresa un documento mínimo de 5 dígitos |
-      | 374345&%$&$sdfdfd  | 6                    |                                          |
+      | Diligenciar           | Numero de caracteres | Mensaje de error                         |
+      | 0                     | 0                    | Ingresa un documento mínimo de 5 dígitos |
+      | 1234                  | 4                    | Ingresa un documento mínimo de 5 dígitos |
+      | 12345                 | 5                    |                                          |
+      | 123456789012345456    | 15                   |                                          |
+      | ajdjdijdeijd          | 0                    | Ingresa un documento mínimo de 5 dígitos |
+      | !"#$%&/()=?¿´+{}-.,;: | 0                    | Ingresa un documento mínimo de 5 dígitos |
+      | 374345&%$&$sdfdfd     | 6                    |                                          |
 
   Esquema del escenario: Validaciones campo clave
     Dado que camilo quiere ingresar a la pagina de recordar usuario
@@ -33,14 +33,14 @@ Característica: Pruebas unitarias campos en la pantalla recordar usuario
     Y el observa en pantalla el siguiente mensaje de error: <Mensaje de error>
 
     Ejemplos:
-      | Diligenciar       | Numero de caracteres | Mensaje de error                  |
-      | 0                 | 1                    | Ingresa los 4 dígitos de la clave |
-      | 1234              | 4                    |                                   |
-      | 12345             | 4                    |                                   |
-      | 123456789012345   | 4                    |                                   |
-      | ajdjdijdeijd      | 0                    | Ingresa los 4 dígitos de la clave |
-      | !"#$%&&//())@     | 0                    | Ingresa los 4 dígitos de la clave |
-      | 374345&%$&$sdfdfd | 4                    |                                   |
+      | Diligenciar           | Numero de caracteres | Mensaje de error                  |
+      | 0                     | 1                    | Ingresa los 4 dígitos de la clave |
+      | 1234                  | 4                    |                                   |
+      | 12345                 | 4                    |                                   |
+      | 123456789012345       | 4                    |                                   |
+      | ajdjdijdeijd          | 0                    | Ingresa los 4 dígitos de la clave |
+      | !"#$%&/()=?¿´+{}-.,;: | 0                    | Ingresa los 4 dígitos de la clave |
+      | 374345&%$&$sdfdfd     | 4                    |                                   |
 
   Escenario: Verificación placeholder campos
     Cuando camilo ingresa a la pagina de recordar usuario

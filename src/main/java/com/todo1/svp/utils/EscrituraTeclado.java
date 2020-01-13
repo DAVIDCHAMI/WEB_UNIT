@@ -13,6 +13,7 @@ public class EscrituraTeclado {
 
   static {
     caracteres = new HashMap<>();
+    caracteres.put(' ', EscrituraTeclado::escribirEspacio);
     caracteres.put('@', EscrituraTeclado::escribirArroba);
     caracteres.put('!', EscrituraTeclado::escribirCerrarSignoExclamacion);
     caracteres.put('¡', EscrituraTeclado::escribirAbrirSignoExclamacion);
@@ -68,6 +69,11 @@ public class EscrituraTeclado {
     caracteres.put('i', EscrituraTeclado::escribirLetraI);
     caracteres.put('o', EscrituraTeclado::escribirLetraO);
     caracteres.put('p', EscrituraTeclado::escribirLetraP);
+    caracteres.put('á', EscrituraTeclado::escribirAcentoLetraA);
+    caracteres.put('é', EscrituraTeclado::escribirAcentoLetraE);
+    caracteres.put('í', EscrituraTeclado::escribirAcentoLetraI);
+    caracteres.put('ó', EscrituraTeclado::escribirAcentoLetraO);
+    caracteres.put('ú', EscrituraTeclado::escribirAcentoLetraU);
     caracteres.put('1', EscrituraTeclado::escribirNumero1);
     caracteres.put('2', EscrituraTeclado::escribirNumero2);
     caracteres.put('3', EscrituraTeclado::escribirNumero3);
@@ -89,6 +95,66 @@ public class EscrituraTeclado {
     } else {
       throw new IllegalArgumentException("No se encuentra mapeado el caracter con Robot");
     }
+  }
+
+  private static void escribirEspacio() {
+    robot.keyPress(VK_SPACE);
+    robot.keyRelease(VK_SPACE);
+  }
+
+  private static void escribirAcentoLetraA() {
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD1);
+    robot.keyPress(VK_NUMPAD6);
+    robot.keyPress(VK_NUMPAD0);
+    robot.keyRelease(VK_NUMPAD0);
+    robot.keyRelease(VK_NUMPAD6);
+    robot.keyRelease(VK_NUMPAD1);
+    robot.keyRelease(VK_ALT);
+  }
+
+  private static void escribirAcentoLetraE() {
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD1);
+    robot.keyPress(VK_NUMPAD3);
+    robot.keyPress(VK_NUMPAD0);
+    robot.keyRelease(VK_NUMPAD0);
+    robot.keyRelease(VK_NUMPAD3);
+    robot.keyRelease(VK_NUMPAD1);
+    robot.keyRelease(VK_ALT);
+  }
+
+  private static void escribirAcentoLetraI() {
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD1);
+    robot.keyPress(VK_NUMPAD6);
+    robot.keyPress(VK_NUMPAD1);
+    robot.keyRelease(VK_NUMPAD1);
+    robot.keyRelease(VK_NUMPAD6);
+    robot.keyRelease(VK_NUMPAD1);
+    robot.keyRelease(VK_ALT);
+  }
+
+  private static void escribirAcentoLetraO() {
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD1);
+    robot.keyPress(VK_NUMPAD6);
+    robot.keyPress(VK_NUMPAD2);
+    robot.keyRelease(VK_NUMPAD2);
+    robot.keyRelease(VK_NUMPAD6);
+    robot.keyRelease(VK_NUMPAD1);
+    robot.keyRelease(VK_ALT);
+  }
+
+  private static void escribirAcentoLetraU() {
+    robot.keyPress(VK_ALT);
+    robot.keyPress(VK_NUMPAD1);
+    robot.keyPress(VK_NUMPAD6);
+    robot.keyPress(VK_NUMPAD3);
+    robot.keyRelease(VK_NUMPAD3);
+    robot.keyRelease(VK_NUMPAD6);
+    robot.keyRelease(VK_NUMPAD1);
+    robot.keyRelease(VK_ALT);
   }
 
   private static void escribirLetraA() {
