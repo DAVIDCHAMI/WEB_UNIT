@@ -9,14 +9,14 @@ Este proyecto es creado para realizar pruebas a campos como de caracteres permit
 - [Ejecucion de pruebas](#ejecucion)
 - [Changelog](#changelog)
  
-## Prerrequisitos ## 
+## Prerrequisitos 📋
  
 - IDE instalado
 - JDK 1.8
 - Gradle 4.9 o superior
 - GIT
  
-## Configuracion ##
+## Configuracion ⚙️
  
 Ya descargado el proyecto, importarlo en el IDE de preferencia.
 
@@ -215,9 +215,14 @@ Despues ejecutar el comando:
 gradle compileJava
 ```
 
+***Nota: El chromeDriver actual es compatible con la version de Chrome 79.0.3945.117 en 
+caso de que no funcione por temas de chromeDriver ingresar a [ChromeDriver - WebDriver for Chrome](https://chromedriver.chromium.org/)
+y buscar el chromeDriver correspondiente a la version del chrome instalado en tu computadora; guardarlo en la ruta 
+src/test/resource/driver.***
+
 Cualquier duda comunicarse por Teams con [Juan Camilo Murcia Ramos]()
 
-## Ejecucion ##
+## Ejecucion 🚀
 
 * Ejecución Todos los test:
 Para ejecutar todos los test del proyecto y generar el reporte puede usar.
