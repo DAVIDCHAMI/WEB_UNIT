@@ -1,115 +1,258 @@
 # SVP Rediseño Personas Web Unit Test – Screenplay
 
-Breve descripcion de Aplicacion XYZ
- 
-Migrado de subversion: http://cdv4.todo1.com/svn/..... (Opcional)
- 
+Este proyecto es creado para realizar pruebas a campos como de caracteres permitidos, caracteres no permitidos y mensajes de error del campo; Pruebas de verificacion de botones, validando su habilitacion en ciertos casos en especificos; Validaciones de los textos en pantalla como mensajes, titulos, placeholders y textos en botones.
  
 ## Contenido ##
  
 - [Prerrequisitos](#prerrequisitos)
-- [Documentacion](#documentacion)
-- [Componentes](#componentes)
 - [Configuracion](#configuracion)
-- [Licencia](#licencia)
+- [Ejecucion de pruebas](#ejecucion)
 - [Changelog](#changelog)
  
-## Prerrequisitos ##
+## Prerrequisitos 📋
  
+- IDE instalado
 - JDK 1.8
-- Maven 3.2.0+
-- GIT LFS
+- Gradle 4.9 o superior
+- GIT
  
-## Documentacion ##
+## Configuracion ⚙️
  
-Lorem ipsum dolor sit amet, condimentum praesent pellentesque sed nunc habitasse ultrices. Velit congue viverra, felis curabitur volutpat,
-fermentum lacus lacus sit sed libero.
- 
-Ver <url Confluence>
- 
-## Componentes ##
- 
-Version estable en producción: 1.1.0
- 
-### Parent pom (Si aplica) ###
- 
-* Maven:
-     
-~~~
-    <dependency>
-        <groupId>com.todo1.psf</groupId>
-        <artifactId>t1-psf-my-parent</artifactId>
-        <packaging>pom</packaging>
-    </dependency>
-~~~
- 
-* Modulos incluidos:
- 
-~~~
-    <modules>
-        <module>t1-psf-mod-1</module>
-        <module>t1-psf-mod-2</module>
-    </modules>
-~~~
- 
-### Modulo 1 ###
- 
-Descripcion modulo 1, Lorem ipsum dolor sit amet....
- 
-* Maven:
-     
-~~~
-    <dependency>
-        <groupId>com.todo1.psf</groupId>
-        <artifactId>t1-psf-mod-1</artifactId>
-        <packaging>jar</packaging>
-    </dependency>
-~~~
- 
-### Modulo 2 ###
- 
-Descripcion modulo 2, Lorem ipsum dolor sit amet....
- 
-* Maven:
-     
-~~~
-    <dependency>
-        <groupId>com.todo1.psf</groupId>
-        <artifactId>t1-psf-mod-2</artifactId>
-        <packaging>war</packaging>
-    </dependency>
-~~~
- 
- 
- 
-## Construccion ##
- 
+Ya descargado el proyecto, importarlo en el IDE de preferencia.
+
+Es importante compilar el proyecto para esto, ejecutar alguno de los siguientes comandos.
+Ejecutar por consola 
 ```
-#!bash
-mvn clean install
- 
+gradle clean assemble
+gradle compileJava
 ```
- 
-## Configuracion ##
- 
-* Dependencias: N/A
-* Base de datos: Configurar JDBC .......
-* GIT: (Esta seccion solo aplica para repos que usen Git LFS)
- 
-**IMPORTANTE**
- 
-Este repositorio requiere LFS.
- 
-Se debe usar un cliente que maneje LFS tal como [SourceTree](https://www.sourcetreeapp.com).
- 
-Para agregar archivos a LFS usar el comando:
- 
-    git lfs track "*.xyz"
- 
-Para configurar Jobs de Jenkins usando LFS se debe seguir las instrucciones indicadas [aqui­](https://todo1jira.atlassian.net/wiki/x/DWMaDg)
- 
-Para mas informacion ver: [https://www.atlassian.com/git/tutorials/git-lfs](https://www.atlassian.com/git/tutorials/git-lfs)
- 
+Nota: El comando gradle clean assemble ejecuta el compileJava por defecto.
+
+###Error al momento de compilar 
+
+Al momento de compilar puede salir este error
+
+```
+> Task :compileJava FAILED
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:19: error: unclosed character literal
+    caracteres.put('┬í', EscrituraTeclado::escribirAbrirSignoExclamacion);
+                   ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:19: error: illegal character: '\u00a1'
+    caracteres.put('┬í', EscrituraTeclado::escribirAbrirSignoExclamacion);
+                     ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:19: error: unclosed character literal
+    caracteres.put('┬í', EscrituraTeclado::escribirAbrirSignoExclamacion);
+                      ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:19: error: ';' expected
+    caracteres.put('┬í', EscrituraTeclado::escribirAbrirSignoExclamacion);
+                                         ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:19: error: not a statement
+    caracteres.put('┬í', EscrituraTeclado::escribirAbrirSignoExclamacion);
+                                           ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:19: error: ';' expected
+    caracteres.put('┬í', EscrituraTeclado::escribirAbrirSignoExclamacion);
+                                                                        ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:28: error: unclosed character literal
+    caracteres.put('┬┐', EscrituraTeclado::escribirAbrirSignoInterrogacion);
+                   ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:28: error: illegal character: '\u00bf'
+    caracteres.put('┬┐', EscrituraTeclado::escribirAbrirSignoInterrogacion);
+                     ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:28: error: unclosed character literal
+    caracteres.put('┬┐', EscrituraTeclado::escribirAbrirSignoInterrogacion);
+                      ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:28: error: ';' expected
+    caracteres.put('┬┐', EscrituraTeclado::escribirAbrirSignoInterrogacion);
+                                         ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:28: error: not a statement
+    caracteres.put('┬┐', EscrituraTeclado::escribirAbrirSignoInterrogacion);
+                                           ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:28: error: ';' expected
+    caracteres.put('┬┐', EscrituraTeclado::escribirAbrirSignoInterrogacion);
+                                                                          ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:42: error: unclosed character literal
+    caracteres.put('├▒', EscrituraTeclado::escribirEnie);
+                   ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:42: error: illegal character: '\u00b1'
+    caracteres.put('├▒', EscrituraTeclado::escribirEnie);
+                     ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:42: error: unclosed character literal
+    caracteres.put('├▒', EscrituraTeclado::escribirEnie);
+                      ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:42: error: ';' expected
+    caracteres.put('├▒', EscrituraTeclado::escribirEnie);
+                                         ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:42: error: not a statement
+    caracteres.put('├▒', EscrituraTeclado::escribirEnie);
+                                           ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:42: error: ';' expected
+    caracteres.put('├▒', EscrituraTeclado::escribirEnie);
+                                                       ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:72: error: unclosed character literal
+    caracteres.put('├í', EscrituraTeclado::escribirAcentoLetraA);
+                   ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:72: error: illegal character: '\u00a1'
+    caracteres.put('├í', EscrituraTeclado::escribirAcentoLetraA);
+                     ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:72: error: unclosed character literal
+    caracteres.put('├í', EscrituraTeclado::escribirAcentoLetraA);
+                      ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:72: error: ';' expected
+    caracteres.put('├í', EscrituraTeclado::escribirAcentoLetraA);
+                                         ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:72: error: not a statement
+    caracteres.put('├í', EscrituraTeclado::escribirAcentoLetraA);
+                                           ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:72: error: ';' expected
+    caracteres.put('├í', EscrituraTeclado::escribirAcentoLetraA);
+                                                               ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:73: error: unclosed character literal
+    caracteres.put('├®', EscrituraTeclado::escribirAcentoLetraE);
+                   ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:73: error: illegal character: '\u00a9'
+    caracteres.put('├®', EscrituraTeclado::escribirAcentoLetraE);
+                     ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:73: error: unclosed character literal
+    caracteres.put('├®', EscrituraTeclado::escribirAcentoLetraE);
+                      ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:73: error: ';' expected
+    caracteres.put('├®', EscrituraTeclado::escribirAcentoLetraE);
+                                         ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:73: error: not a statement
+    caracteres.put('├®', EscrituraTeclado::escribirAcentoLetraE);
+                                           ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:73: error: ';' expected
+    caracteres.put('├®', EscrituraTeclado::escribirAcentoLetraE);
+                                                               ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:74: error: unclosed character literal
+    caracteres.put('├¡', EscrituraTeclado::escribirAcentoLetraI);
+                   ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:74: error: illegal character: '\u00ad'
+    caracteres.put('├¡', EscrituraTeclado::escribirAcentoLetraI);
+                     ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:74: error: unclosed character literal
+    caracteres.put('├¡', EscrituraTeclado::escribirAcentoLetraI);
+                      ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:74: error: ';' expected
+    caracteres.put('├¡', EscrituraTeclado::escribirAcentoLetraI);
+                                         ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:74: error: not a statement
+    caracteres.put('├¡', EscrituraTeclado::escribirAcentoLetraI);
+                                           ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:74: error: ';' expected
+    caracteres.put('├¡', EscrituraTeclado::escribirAcentoLetraI);
+                                                               ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:75: error: unclosed character literal
+    caracteres.put('├│', EscrituraTeclado::escribirAcentoLetraO);
+                   ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:75: error: illegal character: '\u00b3'
+    caracteres.put('├│', EscrituraTeclado::escribirAcentoLetraO);
+                     ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:75: error: unclosed character literal
+    caracteres.put('├│', EscrituraTeclado::escribirAcentoLetraO);
+                      ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:75: error: ';' expected
+    caracteres.put('├│', EscrituraTeclado::escribirAcentoLetraO);
+                                         ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:75: error: not a statement
+    caracteres.put('├│', EscrituraTeclado::escribirAcentoLetraO);
+                                           ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:75: error: ';' expected
+    caracteres.put('├│', EscrituraTeclado::escribirAcentoLetraO);
+                                                               ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:76: error: unclosed character literal
+    caracteres.put('├║', EscrituraTeclado::escribirAcentoLetraU);
+                   ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:76: error: ';' expected
+    caracteres.put('├║', EscrituraTeclado::escribirAcentoLetraU);
+                     ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:76: error: unclosed character literal
+    caracteres.put('├║', EscrituraTeclado::escribirAcentoLetraU);
+                      ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:76: error: ';' expected
+    caracteres.put('├║', EscrituraTeclado::escribirAcentoLetraU);
+                                         ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:76: error: not a statement
+    caracteres.put('├║', EscrituraTeclado::escribirAcentoLetraU);
+                                           ^
+D:\Proyecto TODO1\svp-rediseno-personas-web-unit-test-screenplay\src\main\java\com\todo1\svp\utils\EscrituraTeclado.java:76: error: ';' expected
+    caracteres.put('├║', EscrituraTeclado::escribirAcentoLetraU);
+                                                               ^
+48 errors
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 5.0.
+Use '--warning-mode all' to show the individual deprecation warnings.
+See https://docs.gradle.org/4.9/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD FAILED in 6s
+2 actionable tasks: 2 executed
+```
+
+Este error se da momento de compilar ya que aveces con el encode se pieder el caracter.
+
+Para solucionar este error, cambiar el encode a **windows-1552** de la clase **EscrituraTeclado**
+y cambiar los caracteres que esten asi:
+```
+    caracteres.put('�', EscrituraTeclado::escribirAbrirSignoExclamacion);
+```
+Cambiarlos por el caracter que se dice en el metodo, asi de esta manera:
+```
+    caracteres.put('¡', EscrituraTeclado::escribirAbrirSignoExclamacion);
+```
+Despues ejecutar el comando:
+```
+gradle compileJava
+```
+
+***Nota: El chromeDriver actual es compatible con la version de Chrome 79.0.3945.117 en 
+caso de que no funcione por temas de chromeDriver ingresar a [ChromeDriver - WebDriver for Chrome](https://chromedriver.chromium.org/)
+y buscar el chromeDriver correspondiente a la version del chrome instalado en tu computadora; guardarlo en la ruta 
+src/test/resource/driver.***
+
+Cualquier duda comunicarse por Teams con [Juan Camilo Murcia Ramos]()
+
+## Ejecucion 🚀
+
+* Ejecución Todos los test:
+Para ejecutar todos los test del proyecto y generar el reporte puede usar.
+
+```
+gradle clean test aggregate
+```
+
+* Ejecución algunos test:
+Para ejecutar algunos test se puede usar el comando
+```
+gradle clean test -Dtest.single=**/runners/tipoprueba/runner aggregate
+```
+Esta es la estructura base. Quedaria como ejemplo:
+```
+gradle clean test -Dtest.single=**/runners/pruebasunitarias/PruebasUnitariasCampoClaveRunner aggregate
+```
+
+Si tiene el driver en alguna ruta en tu computadora o tienes un sistema operativo diferente puedes utilizar esta linea 
+y puede agregarla al comando de ejecucion.
+```
+-Dwebdriver.chrome.driver=Ubicacion del driver
+```
+Esta es la estructura base. Quedaria como ejemplo:
+```
+gradle clean test -Dwebdriver.chrome.driver=C://chromedriver.exe aggregate
+```
+
+todos los filtros que se pueden usar se pueden ver en:
+[docGradle](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/TestFilter.html)
  
 ## Licencia ##
  
@@ -119,10 +262,3 @@ This work is protected by the United States of America copyright laws.
 All information contained herein is and remains the property of TODO1 [and its suppliers, if any]. Dissemination of this information or
 reproduction of this material is not permitted unless prior written consent is obtained from TODO1 SERVICES, INC.
  
-## Changelog ##
- 
-| Version     | Cambio    |
-| --------|---------|
-| 1.0.0 | Migracion subversion   |
-| 1.0.1 | Defectos   |
-| 1.1.0 | Requerimientos X, Y y Z   |
