@@ -28,7 +28,7 @@ gradle compileJava
 ```
 Nota: El comando gradle clean assemble ejecuta el compileJava por defecto.
 
-###Error al momento de compilar 
+### Error al momento de compilar ###
 
 Al momento de compilar puede salir este error
 
