@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-  features = "src/test/resources/features/verificarmensajes/verificar_textos_paginas.feature",
+  features = "src/test/resources/features/verificarmensajes/verificar_textos_autenticacion.feature",
   glue = "com.todo1.svp.stepdefinitions",
   snippets = SnippetType.CAMELCASE
 )

@@ -38,8 +38,7 @@ public class EstadoElemento implements Question<Boolean> {
     switch (tipoElemento) {
       case "boton":
         resultado =
-            BOTON_PRINCIPAL.of(nombreElemento.toUpperCase()).resolveFor(actor).isEnabled()
-                == estadoElemento;
+            BOTON_PRINCIPAL.of(nombreElemento).resolveFor(actor).isEnabled() == estadoElemento;
         break;
       case "campo":
         resultado = CAMPO.of(nombreElemento).resolveFor(actor).isEnabled() == estadoElemento;

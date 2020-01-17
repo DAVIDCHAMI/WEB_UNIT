@@ -28,7 +28,7 @@ public class PruebasUnitariasCamposClaveStepDefinition {
 
   @Entonces("el ingresa a la pantalla clave")
   public void ingresaPantallaClave() throws InterruptedException {
-    theActorInTheSpotlight().attemptsTo(Click.on(BOTON_PRINCIPAL.of("CONTINUAR")));
+    theActorInTheSpotlight().attemptsTo(Click.on(BOTON_PRINCIPAL.of("continuar")));
     Thread.sleep(2000);
   }
 

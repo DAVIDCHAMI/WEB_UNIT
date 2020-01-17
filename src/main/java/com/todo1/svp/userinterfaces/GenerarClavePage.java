@@ -13,8 +13,7 @@ public class GenerarClavePage {
   public static final Target PLACEHOLDER_TYPE_LIST =
       Target.the("Placeholder de la opcion escogida en el type list")
           .locatedBy("//div[@class='dropdown-display-content']/span[contains(.,'{0}')]");
-  public static final Target TOOLTIP =
-      Target.the("Objeto tooltip").located(By.className("tooltip "));
+  public static final Target TOOLTIP = Target.the("Objeto tooltip").located(By.id("toolTipBlock"));
 
   private GenerarClavePage() {}
 }
