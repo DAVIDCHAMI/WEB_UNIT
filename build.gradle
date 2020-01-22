@@ -15,7 +15,7 @@ buildscript {
     }
     dependencies {
         classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.40")
-        classpath "gradle.plugin.com.github.sherter.google-java-format:google-java-format-gradle-plugin:0.6"
+        classpath "gradle.plugin.com.github.sherter.google-java-format:google-java-format-gradle-plugin:0.8"
         classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6.2"
     }
 }
@@ -34,7 +34,6 @@ tasks.withType(JavaCompile) {
     options.encoding = 'Cp1252'
 }
 tasks.withType(Test) {
-    systemProperty 'webdriver.driver', System.getProperty('webdriver.driver', 'chrome')
     systemProperty "file.encoding", "Cp1252"
 }
 

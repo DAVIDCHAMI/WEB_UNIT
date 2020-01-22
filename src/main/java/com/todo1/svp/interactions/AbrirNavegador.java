@@ -1,5 +1,6 @@
 package com.todo1.svp.interactions;
 
+import static com.todo1.svp.interactions.Esperar.esperar;
 import static com.todo1.svp.userinterfaces.TextoPantallaPage.ELEMENTO_MENSAJE;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static org.apache.commons.lang3.StringUtils.stripAccents;
@@ -36,15 +37,11 @@ public class AbrirNavegador implements Interaction {
 
   @Override
   public <T extends Actor> void performAs(T actor) {
-    try {
-      if (!(comparacionUrl.equals(url)
-          & ELEMENTO_MENSAJE.of(tituloPantalla).resolveFor(actor).isVisible())) {
-        actor.attemptsTo(Open.url(url));
-        comparacionUrl = url;
-        Thread.sleep(200);
-      }
-    } catch (InterruptedException e) {
-      LOGGER.error("Se interrumpio el tiempo", e);
+    if (!(comparacionUrl.equals(url)
+        & ELEMENTO_MENSAJE.of(tituloPantalla).resolveFor(actor).isVisible())) {
+      actor.attemptsTo(Open.url(url));
+      comparacionUrl = url;
+      actor.attemptsTo(esperar(2000));
     }
   }
 }

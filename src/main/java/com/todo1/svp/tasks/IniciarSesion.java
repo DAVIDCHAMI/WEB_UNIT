@@ -32,7 +32,7 @@ public class IniciarSesion implements Task {
           WaitUntil.the(CAMPO.of("usuario"), isClickable()),
           Enter.theValue(mapCredenciales.get("Usuario")).into(CAMPO.of("usuario")),
           Click.on(BOTON_PRINCIPAL.of("continuar")),
-          WaitUntil.the(CAMPO.of("clave"), isVisible()),
+          WaitUntil.the(CAMPO.of("usuario"), isNotVisible()),
           Enter.theValue(mapCredenciales.get("Contrasena")).into(CAMPO.of("clave")),
           Click.on(BOTON_PRINCIPAL.of("continuar")),
           WaitUntil.the(CAMPO.of("clave"), isNotVisible()));

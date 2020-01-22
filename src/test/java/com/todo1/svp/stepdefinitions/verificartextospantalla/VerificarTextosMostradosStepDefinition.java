@@ -31,7 +31,7 @@ public class VerificarTextosMostradosStepDefinition {
 
   @Cuando("el inicia sesion en la SVP")
   public void iniciarSesion(List<Map<String, String>> credenciales) {
-    theActorInTheSpotlight().attemptsTo(IniciarSesion.SVP(credenciales));
+    theActorInTheSpotlight().attemptsTo(IniciarSesion.svp(credenciales));
   }
 
   @Entonces("el observa los textos correctamente en la categoria (.*)")

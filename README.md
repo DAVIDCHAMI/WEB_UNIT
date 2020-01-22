@@ -26,7 +26,7 @@ Ejecutar por consola
 gradle clean assemble
 gradle compileJava
 ```
-Nota: El comando gradle clean assemble ejecuta el compileJava por defecto.
+**Nota:** El comando gradle clean assemble ejecuta el compileJava por defecto.
 
 ### Error al momento de compilar ###
 
@@ -229,11 +229,11 @@ gradle clean test aggregate
 
 Para ejecutar algunos test se puede usar el comando
 ```
-gradle clean test -Dtest.single=**/runners/tipoprueba/runner aggregate
+gradle clean test -Dtest.single=**/runners/tipoprueba/operacion/runner aggregate
 ```
 Esta es la estructura base. Quedaria como ejemplo:
 ```
-gradle clean test -Dtest.single=**/runners/pruebasunitarias/PruebasUnitariasCampoClaveRunner aggregate
+gradle clean test -Dtest.single=**/runners/pruebasunitarias/autenticacion/PruebasUnitariasCampoClaveRunner aggregate
 ```
 
 **Ejecucion de test en otro navegador**
@@ -271,7 +271,7 @@ caso de que no funcione por temas del driver ingresar a las URL:***
 [Microsof Edge WebDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)***
     
 ***Buscar el driver correspondiente a la version del navegador instalado en tu computadora; guardarlo en la ruta 
-src/test/resource/driver, reemplazar el que esta en la ruta por el uevo descargado y ejecutar***
+src/test/resource/driver, reemplazar el que esta en la ruta por el nuevo descargado y ejecutar las pruebas.***
 
 ***Cualquier duda comunicarse por Teams con [Juan Camilo Murcia Ramos]()***
 
