@@ -26,9 +26,9 @@ Ejecutar por consola
 gradle clean assemble
 gradle compileJava
 ```
-Nota: El comando gradle clean assemble ejecuta el compileJava por defecto.
+**Nota:** El comando gradle clean assemble ejecuta el compileJava por defecto.
 
-###Error al momento de compilar 
+### Error al momento de compilar ###
 
 Al momento de compilar puede salir este error
 
@@ -215,31 +215,67 @@ Despues ejecutar el comando:
 gradle compileJava
 ```
 
-***Nota: El chromeDriver actual es compatible con la version de Chrome 79.0.3945.117 en 
-caso de que no funcione por temas de chromeDriver ingresar a [ChromeDriver - WebDriver for Chrome](https://chromedriver.chromium.org/)
-y buscar el chromeDriver correspondiente a la version del chrome instalado en tu computadora; guardarlo en la ruta 
-src/test/resource/driver.***
-
-Cualquier duda comunicarse por Teams con [Juan Camilo Murcia Ramos]()
-
 ## Ejecucion 🚀
 
-* Ejecución Todos los test:
+**Ejecución Todos los test**
+
 Para ejecutar todos los test del proyecto y generar el reporte puede usar.
 
 ```
 gradle clean test aggregate
 ```
 
-* Ejecución algunos test:
+**Ejecución algunos test**
+
 Para ejecutar algunos test se puede usar el comando
 ```
-gradle clean test -Dtest.single=**/runners/tipoprueba/runner aggregate
+gradle clean test -Dtest.single=**/runners/tipoprueba/operacion/runner aggregate
 ```
 Esta es la estructura base. Quedaria como ejemplo:
 ```
-gradle clean test -Dtest.single=**/runners/pruebasunitarias/PruebasUnitariasCampoClaveRunner aggregate
+gradle clean test -Dtest.single=**/runners/pruebasunitarias/autenticacion/PruebasUnitariasCampoClaveRunner aggregate
 ```
+
+**Ejecucion de test en otro navegador**
+
+El proyecto cuenta con los webderiver de los navegadores de: **Chrome, Firefox y Microsoft Edge.**
+Cada uno de estos esta para la ultima version del navegador a seleccionar.
+
+Para la ejecucion de los test con otro navegador puedes utilizar esta linea y puede agregarla al comando de ejecucion
+```
+-Dwebdriver.driver= Nombre del navegador
+```
+
+Esta es la estructura base. Quedaria como ejemplo:
+* Firefox
+```
+-Dwebdriver.driver=firefox
+```
+* Chrome
+```
+-Dwebdriver.driver=chrome
+```
+* Microsoft Edge
+```
+-Dwebdriver.driver=edge
+```
+
+### Nota
+
+***El drivers actuales son compatibles con las ultimas versiones de los navegadores Chrome, Firefox y Microsoft Edge en 
+caso de que no funcione por temas del driver ingresar a las URL:***
+* ***Para Chrome: [ChromeDriver - WebDriver for Chrome](https://chromedriver.chromium.org/)***
+* ***Para Firefox: [Supported platforms](https://firefox-source-docs.mozilla.org/testing/geckodriver/Support.html) y
+[Descargas version](https://github.com/mozilla/geckodriver)***
+* ***Para Microsoft Edge: 
+[Microsof Edge WebDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)***
+    
+***Buscar el driver correspondiente a la version del navegador instalado en tu computadora; guardarlo en la ruta 
+src/test/resource/driver, reemplazar el que esta en la ruta por el nuevo descargado y ejecutar las pruebas.***
+
+***Cualquier duda comunicarse por Teams con [Juan Camilo Murcia Ramos]()***
+
+**Ejecucion de test con un driver en otra ruta**
 
 Si tiene el driver en alguna ruta en tu computadora o tienes un sistema operativo diferente puedes utilizar esta linea 
 y puede agregarla al comando de ejecucion.

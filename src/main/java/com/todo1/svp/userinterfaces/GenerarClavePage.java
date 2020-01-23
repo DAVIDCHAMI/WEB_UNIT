@@ -14,7 +14,7 @@ public class GenerarClavePage {
       Target.the("Placeholder de la opcion escogida en el type list")
           .locatedBy("//div[@class='dropdown-display-content']/span[contains(.,'{0}')]");
   public static final Target TOOLTIP =
-      Target.the("Objeto tooltip").located(By.className("tooltip "));
+      Target.the("Objeto tooltip").located(By.xpath(".//div[@data-block='Patterns.TooltipSVP']"));
 
   private GenerarClavePage() {}
 }

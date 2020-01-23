@@ -9,7 +9,9 @@ public class UsuarioPage {
           .locatedBy(
               "//*[self::input or self::textarea]/../../../../../../..//span[contains(.,'{0}')]//following::*[self::input[not(@type='checkbox')] or self::textarea][1]");
   public static final Target BOTON_PRINCIPAL =
-      Target.the("Boton {0}").locatedBy(".//button[contains(.,'{0}')]");
+      Target.the("Boton {0}")
+          .locatedBy(
+              ".//button[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'),'{0}')]");
   public static final Target MENSAJE_VALIDACION =
       Target.the("Message of validation document")
           .locatedBy(".//span[@class='validation-message' or @id='ErrorText'][text()='{0}']");
