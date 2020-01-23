@@ -36,7 +36,6 @@ public class IniciarSesion implements Task {
           Click.on(BOTON_PRINCIPAL.of("continuar")),
           WaitUntil.the(CAMPO.of("usuario"), isNotVisible()),
           EscribirTeclado.escribir(mapCredenciales.get("Contrasena"), "clave"),
-          Enter.theValue(mapCredenciales.get("Contrasena")).into(CAMPO.of("clave")),
           Click.on(BOTON_PRINCIPAL.of("continuar")),
           WaitUntil.the(CAMPO.of("clave"), isNotVisible()));
     }

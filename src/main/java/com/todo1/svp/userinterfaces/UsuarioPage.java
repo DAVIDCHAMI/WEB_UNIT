@@ -17,8 +17,6 @@ public class UsuarioPage {
           .locatedBy(".//span[@class='validation-message' or @id='ErrorText'][text()='{0}']");
   public static final Target LOGO_BANCOLOMBIA =
       Target.the("Logo bancolombia").located(By.className("app-logo"));
-  public static final Target TXT_CLAVE =
-      Target.the("Campo clave de usuario").located(By.id("b3-Input_TextVar"));
 
   private UsuarioPage() {}
 }
