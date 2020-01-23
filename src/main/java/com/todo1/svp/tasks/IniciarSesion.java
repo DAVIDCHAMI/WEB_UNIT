@@ -5,6 +5,7 @@ import static com.todo1.svp.userinterfaces.UsuarioPage.CAMPO;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 
+import com.todo1.svp.interactions.EscribirTeclado;
 import java.util.List;
 import java.util.Map;
 import net.serenitybdd.screenplay.Actor;
@@ -27,12 +28,14 @@ public class IniciarSesion implements Task {
 
   @Override
   public <T extends Actor> void performAs(T actor) {
+
     for (Map<String, String> mapCredenciales : credenciales) {
       actor.attemptsTo(
           WaitUntil.the(CAMPO.of("usuario"), isClickable()),
           Enter.theValue(mapCredenciales.get("Usuario")).into(CAMPO.of("usuario")),
           Click.on(BOTON_PRINCIPAL.of("continuar")),
           WaitUntil.the(CAMPO.of("usuario"), isNotVisible()),
+          EscribirTeclado.escribir(mapCredenciales.get("Contrasena"), "clave"),
           Enter.theValue(mapCredenciales.get("Contrasena")).into(CAMPO.of("clave")),
           Click.on(BOTON_PRINCIPAL.of("continuar")),
           WaitUntil.the(CAMPO.of("clave"), isNotVisible()));

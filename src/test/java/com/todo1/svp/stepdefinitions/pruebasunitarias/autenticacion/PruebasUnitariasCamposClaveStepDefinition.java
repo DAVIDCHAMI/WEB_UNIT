@@ -1,4 +1,4 @@
-package com.todo1.svp.stepdefinitions.pruebasunitarias;
+package com.todo1.svp.stepdefinitions.pruebasunitarias.autenticacion;
 
 import static com.todo1.svp.exceptions.CaracteresIncorrectoException.ULTIMO_CARACTER_INCORRECTO;
 import static com.todo1.svp.exceptions.EstadoElementoIncorrectoException.ESTADO_ELEMENTO_INCORRECTO;

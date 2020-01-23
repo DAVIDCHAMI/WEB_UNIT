@@ -9,14 +9,10 @@ import com.todo1.svp.utils.enums.EnumUrlPage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
 import net.serenitybdd.screenplay.actions.Open;
-import net.thucydides.core.steps.StepInterceptor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class AbrirNavegador implements Interaction {
 
   private static final String COSTANT_URL_PAGE = "URL_//_PAGE";
-  private static final Logger LOGGER = LoggerFactory.getLogger(StepInterceptor.class);
 
   private String url;
   private String tituloPantalla;

@@ -1,4 +1,4 @@
-package com.todo1.svp.stepdefinitions.pruebasunitarias;
+package com.todo1.svp.stepdefinitions.pruebasunitarias.autenticacion;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
