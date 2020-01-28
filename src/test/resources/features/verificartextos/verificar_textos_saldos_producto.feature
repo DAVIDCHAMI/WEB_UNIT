@@ -6,6 +6,21 @@ Característica: Verificar texto y botones en la funcionalidad de saldos por pro
   Quiero verificar los textos y botones mostrados en pantalla
   Para brindar un buen servicio
 
+  Esquema del escenario: Verificar texto en la categoria de inversiones
+    Dado que camilo quiere ingresar a la pagina de usuario
+    Cuando el inicia sesion en la SVP
+      | Usuario   | Contrasena   |
+      | <Usuario> | <Contrasena> |
+    Entonces el observa los textos correctamente
+      | <Titulo> |
+    Y el observa los textos correctamente en la categoria Inversiones
+      | Nombre personalizado | Descripcion | Numero producto |
+      | <Nombre>             | <Producto>  | <Numero>        |
+
+    Ejemplos:
+      | Usuario   | Contrasena | Titulo         | Nombre             | Producto   | Numero        |
+      | usucfdi01 | 1234       | Hola Hortencia | Fondo de inversión | FIDUCUENTA | 0834000000391 |
+
   Esquema del escenario: Verificar texto en la categoria de cuentas
     Dado que camilo quiere ingresar a la pagina de usuario
     Cuando el inicia sesion en la SVP

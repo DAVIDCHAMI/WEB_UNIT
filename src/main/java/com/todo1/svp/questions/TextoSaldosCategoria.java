@@ -18,6 +18,7 @@ public class TextoSaldosCategoria implements Question<Boolean> {
 
   private List<Map<String, String>> textos;
   private String categoria;
+  private WebElement categoriaProducto;
 
   public TextoSaldosCategoria(String tipoCategoria, List<Map<String, String>> textos) {
     this.textos = textos;
@@ -38,16 +39,14 @@ public class TextoSaldosCategoria implements Question<Boolean> {
           verificarTextoSaldos(actor, texto.get("Nombre personalizado"))
               & verificarTextoSaldos(actor, texto.get("Descripcion"))
               & verificarTextoSaldos(actor, texto.get("Numero producto"))
-              & verificarFormatoValor(
-                  actor, texto.get("Numero producto"), texto.get("Descripcion"));
+              & verificarFormatoValor(actor, texto.get("Numero producto"));
     }
     return resultado;
   }
 
-  private boolean verificarFormatoValor(Actor actor, String numeroProducto, String productos) {
+  private boolean verificarFormatoValor(Actor actor, String numeroProducto) {
     boolean resultado;
-    String valorDolares = "";
-    WebElement producto =
+    categoriaProducto =
         CATEGORIA
             .of(categoria)
             .resolveFor(actor)
@@ -56,34 +55,33 @@ public class TextoSaldosCategoria implements Question<Boolean> {
                     "//div[@class='account-row-content']//span[contains(.,'"
                         + numeroProducto
                         + "')]"));
-    String valorPeso =
-        producto
-            .findElement(
-                By.xpath(
-                    "./../../../..//div/span["
-                        + "contains(.,'Saldo disponible') or contains(.,'Deuda a la fecha')]/../../..//div/span[contains(.,'$')]"))
-            .getText();
-    if ("Tarjetas de crï¿½dito".equals(categoria)) {
-      if (!"Personal Visa".equals(productos)) {
-        valorDolares =
-            producto
-                .findElement(
-                    By.xpath(
-                        "./../../../..//div/span[contains(.,'Saldo disponible') or contains("
-                            + ".,'Deuda a la fecha')]/../..//div[contains(.,'USD')]"))
-                .getText();
-      }
-      if (valorDolares.isEmpty()) {
-        resultado = verificarFormato(PESOS.getValor(), valorPeso);
-      } else {
-        resultado =
-            verificarFormato(DOLARES.getValor(), valorDolares)
-                & verificarFormato(PESOS.getValor(), valorPeso);
-      }
-    } else {
-      resultado = verificarFormato(PESOS.getValor(), valorPeso);
+    switch (categoria) {
+      case "Cuentas":
+      case "Créditos":
+        resultado = obtenerResultadoValorCreditos();
+        break;
+      case "Tarjetas de crédito":
+        resultado = obtenerResultadoValoresTarjetasCredito();
+        break;
+      case "Inversiones":
+        resultado = obtenerResultadoValoresInversiones();
+        break;
+      default:
+        resultado = false;
     }
     return resultado;
+  }
+
+  private boolean obtenerResultadoValoresInversiones() {
+    String saldoDisponible =
+        categoriaProducto
+            .findElement(By.xpath("./../../../..//div[contains(.,'Saldo disponible')]/span[1]"))
+            .getText();
+    String saldoTotal =
+        categoriaProducto
+            .findElement(By.xpath("./../../../..//div[contains(.,'Saldo total')]/span[2]"))
+            .getText();
+    return verificarFormatoMoneda(saldoDisponible) & verificarFormatoMoneda(saldoTotal);
   }
 
   private boolean verificarTextoSaldos(Actor actor, String texto) {
@@ -95,7 +93,39 @@ public class TextoSaldosCategoria implements Question<Boolean> {
         .isVisible();
   }
 
-  private boolean verificarFormato(String formato, String valor) {
-    return Pattern.matches(formato, valor);
+  private boolean obtenerResultadoValorCreditos() {
+    String valoresCredito =
+        categoriaProducto
+            .findElement(
+                By.xpath(
+                    "./../../../..//div/span["
+                        + "contains(.,'Saldo disponible') or contains(.,'Deuda a la fecha')]/../../..//div/span[contains(.,'$')]"))
+            .getText();
+    return verificarFormatoMoneda(valoresCredito);
+  }
+
+  private boolean obtenerResultadoValoresTarjetasCredito() {
+    boolean resultado = false;
+    List<WebElement> valores =
+        categoriaProducto.findElements(
+            By.xpath(
+                "./../../../..//div/span[contains(.,'Deuda a la fecha')]/../..//div[contains(.,'$')]"));
+    for (WebElement valorTarjetaCredito : valores) {
+      resultado = verificarFormatoMoneda(valorTarjetaCredito.getText());
+      if (!resultado) {
+        break;
+      }
+    }
+    return resultado;
+  }
+
+  private boolean verificarFormatoMoneda(String valor) {
+    boolean resultadoFormado;
+    if (valor.contains("USD")) {
+      resultadoFormado = Pattern.matches(DOLARES.getValor(), valor);
+    } else {
+      resultadoFormado = Pattern.matches(PESOS.getValor(), valor);
+    }
+    return resultadoFormado;
   }
 }
