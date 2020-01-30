@@ -8,6 +8,7 @@ import static org.apache.commons.lang3.StringUtils.stripAccents;
 import com.todo1.svp.utils.enums.EnumUrlPage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
+import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Open;
 
 public class AbrirNavegador implements Interaction {
@@ -38,6 +39,7 @@ public class AbrirNavegador implements Interaction {
       actor.attemptsTo(Open.url(url));
       comparacionUrl = url;
       actor.attemptsTo(esperar(2000));
+      BrowseTheWeb.as(actor).getDriver().manage().deleteAllCookies();
     }
   }
 }
