@@ -22,9 +22,9 @@ public class Escribir implements Task {
 
   @Override
   public <T extends Actor> void performAs(T actor) {
-    for (Map<String, String> stringStringMap : campo) {
-      String campoEscribir = stringStringMap.get("Campo a escribir");
-      String palabraEscribir = stringStringMap.get("palabra a escribir");
+    for (Map<String, String> datatable : campo) {
+      String campoEscribir = datatable.get("Campo a escribir");
+      String palabraEscribir = datatable.get("palabra a escribir");
       if (!palabraEscribir.isEmpty()) {
         actor.attemptsTo(escribir(palabraEscribir, campoEscribir));
       }
