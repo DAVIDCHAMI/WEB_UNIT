@@ -1,7 +1,6 @@
 package com.todo1.svp.tasks;
 
 import static com.todo1.svp.interactions.EscribirTeclado.escribir;
-import static com.todo1.svp.userinterfaces.UsuarioPage.*;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 import java.util.List;
@@ -23,11 +22,9 @@ public class Escribir implements Task {
 
   @Override
   public <T extends Actor> void performAs(T actor) {
-    String campoEscribir;
-    String palabraEscribir;
-    for (Map<String, String> stringStringMap : campo) {
-      campoEscribir = stringStringMap.get("Campo a escribir");
-      palabraEscribir = stringStringMap.get("palabra a escribir");
+    for (Map<String, String> datatable : campo) {
+      String campoEscribir = datatable.get("Campo a escribir");
+      String palabraEscribir = datatable.get("palabra a escribir");
       if (!palabraEscribir.isEmpty()) {
         actor.attemptsTo(escribir(palabraEscribir, campoEscribir));
       }

@@ -18,6 +18,8 @@ public class TextoSaldosCategoria implements Question<Boolean> {
 
   private List<Map<String, String>> textos;
   private String categoria;
+  private WebElement categoriaProducto;
+  private String descripcion;
 
   public TextoSaldosCategoria(String tipoCategoria, List<Map<String, String>> textos) {
     this.textos = textos;
@@ -32,56 +34,76 @@ public class TextoSaldosCategoria implements Question<Boolean> {
   @Override
   public Boolean answeredBy(Actor actor) {
     boolean resultado = false;
-    actor.attemptsTo(Click.on(CATEGORIA.of(categoria)));
+    if ("false"
+        .equalsIgnoreCase(
+            CATEGORIA.of(categoria).resolveFor(actor).getAttribute("data-expanded"))) {
+      actor.attemptsTo(Click.on(CATEGORIA.of(categoria)));
+    }
+    esperar(2000);
     for (Map<String, String> texto : textos) {
-      resultado =
-          verificarTextoSaldos(actor, texto.get("Nombre personalizado"))
-              & verificarTextoSaldos(actor, texto.get("Descripcion"))
-              & verificarTextoSaldos(actor, texto.get("Numero producto"))
-              & verificarFormatoValor(
-                  actor, texto.get("Numero producto"), texto.get("Descripcion"));
+      descripcion = texto.get("Descripcion");
+      if ("Credi�gil".equals(descripcion)) {
+        resultado =
+            verificarTextoSaldos(actor, texto.get("Descripcion"))
+                & verificarFormatoValor(actor, texto.get("Descripcion"));
+      } else {
+        resultado =
+            verificarTextoSaldos(actor, texto.get("Nombre personalizado"))
+                & verificarTextoSaldos(actor, texto.get("Descripcion"))
+                & verificarTextoSaldos(actor, texto.get("Numero producto"))
+                & verificarFormatoValor(actor, texto.get("Numero producto"));
+      }
     }
     return resultado;
   }
 
-  private boolean verificarFormatoValor(Actor actor, String numeroProducto, String productos) {
+  private boolean verificarFormatoValor(Actor actor, String numeroProducto) {
     boolean resultado;
-    String valorDolares = "";
-    WebElement producto =
+    categoriaProducto =
         CATEGORIA
             .of(categoria)
             .resolveFor(actor)
             .findElement(
                 By.xpath(
-                    "//div[@class='account-row-content']//span[contains(.,'"
+                    ".//div[@class='account-row-content']//span[contains(.,'"
                         + numeroProducto
                         + "')]"));
-    String valorPeso =
-        producto
-            .findElement(
-                By.xpath(
-                    "./../../../..//div/span["
-                        + "contains(.,'Saldo disponible') or contains(.,'Deuda a la fecha')]/../../..//div/span[contains(.,'$')]"))
-            .getText();
-    if ("Tarjetas de cr�dito".equals(categoria)) {
-      if (!"Personal Visa".equals(productos)) {
-        valorDolares =
-            producto
-                .findElement(
-                    By.xpath(
-                        "./../../../..//div/span[contains(.,'Saldo disponible') or contains("
-                            + ".,'Deuda a la fecha')]/../..//div[contains(.,'USD')]"))
-                .getText();
-      }
-      if (valorDolares.isEmpty()) {
-        resultado = verificarFormato(PESOS.getValor(), valorPeso);
-      } else {
-        resultado =
-            verificarFormato(DOLARES.getValor(), valorDolares)
-                & verificarFormato(PESOS.getValor(), valorPeso);
-      }
+    switch (categoria) {
+      case "Cuentas":
+      case "Cr�ditos":
+      case "Credi�gil":
+        resultado = obtenerResultadoValor();
+        break;
+      case "Tarjetas de cr�dito":
+        resultado = obtenerResultadoValoresTarjetasCredito();
+        break;
+      case "Inversiones":
+        resultado = obtenerResultadoValoresInversiones();
+        break;
+      default:
+        resultado = false;
+    }
+    return resultado;
+  }
+
+  private boolean obtenerResultadoValoresInversiones() {
+    boolean resultado;
+    if (!"Inversi�n virtual".equals(descripcion)) {
+      String saldoDisponible =
+          categoriaProducto
+              .findElement(By.xpath("./../../../..//div[contains(.,'Saldo disponible')]/span[1]"))
+              .getText();
+      String saldoTotal =
+          categoriaProducto
+              .findElement(By.xpath("./../../../..//div[contains(.,'Saldo total')]/span[2]"))
+              .getText();
+      resultado = verificarFormatoMoneda(saldoDisponible) & verificarFormatoMoneda(saldoTotal);
     } else {
-      resultado = verificarFormato(PESOS.getValor(), valorPeso);
+      String saldoCapital =
+          categoriaProducto
+              .findElement(By.xpath("./../../../..//div[contains(.,'Capital')]/span"))
+              .getText();
+      resultado = verificarFormatoMoneda(saldoCapital);
     }
     return resultado;
   }
@@ -95,7 +117,39 @@ public class TextoSaldosCategoria implements Question<Boolean> {
         .isVisible();
   }
 
-  private boolean verificarFormato(String formato, String valor) {
-    return Pattern.matches(formato, valor);
+  private boolean obtenerResultadoValor() {
+    String valoresCredito =
+        categoriaProducto
+            .findElement(
+                By.xpath(
+                    "./../../../..//div/span["
+                        + "contains(.,'Saldo disponible') or contains(.,'Deuda a la fecha')]/../../..//div/span[contains(.,'$')]"))
+            .getText();
+    return verificarFormatoMoneda(valoresCredito);
+  }
+
+  private boolean obtenerResultadoValoresTarjetasCredito() {
+    boolean resultado = false;
+    List<WebElement> valores =
+        categoriaProducto.findElements(
+            By.xpath(
+                "./../../../..//div/span[contains(.,'Deuda a la fecha')]/../..//div[contains(.,'$')]"));
+    for (WebElement valorTarjetaCredito : valores) {
+      resultado = verificarFormatoMoneda(valorTarjetaCredito.getText());
+      if (!resultado) {
+        break;
+      }
+    }
+    return resultado;
+  }
+
+  private boolean verificarFormatoMoneda(String valor) {
+    boolean resultadoFormado;
+    if (valor.contains("USD")) {
+      resultadoFormado = Pattern.matches(DOLARES.getValor(), valor);
+    } else {
+      resultadoFormado = Pattern.matches(PESOS.getValor(), valor);
+    }
+    return resultadoFormado;
   }
 }

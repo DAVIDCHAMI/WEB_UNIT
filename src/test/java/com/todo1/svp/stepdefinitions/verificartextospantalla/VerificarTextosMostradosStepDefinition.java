@@ -8,8 +8,6 @@ import com.todo1.svp.exceptions.TextoNoVisibleException;
 import com.todo1.svp.questions.MensajeAyuda;
 import com.todo1.svp.questions.TextoMostradosPantalla;
 import com.todo1.svp.questions.TextoSaldosCategoria;
-import com.todo1.svp.tasks.IniciarSesion;
-import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Entonces;
 import java.util.List;
 import java.util.Map;
@@ -26,12 +24,10 @@ public class VerificarTextosMostradosStepDefinition {
 
   @Entonces("el observa un tooltip con un mensaje de ayuda")
   public void verificarMensajeAyudaTooltip(String mensajeAyuda) {
-    theActorInTheSpotlight().should(seeThat(MensajeAyuda.enTooltip(mensajeAyuda)));
-  }
-
-  @Cuando("el inicia sesion en la SVP")
-  public void iniciarSesion(List<Map<String, String>> credenciales) {
-    theActorInTheSpotlight().attemptsTo(IniciarSesion.svp(credenciales));
+    theActorInTheSpotlight()
+        .should(
+            seeThat(MensajeAyuda.enTooltip(mensajeAyuda))
+                .orComplainWith(TextoNoVisibleException.class, TEXTO_MENSAJE_NO_SE_ENCUENTRA));
   }
 
   @Entonces("el observa los textos correctamente en la categoria (.*)")
