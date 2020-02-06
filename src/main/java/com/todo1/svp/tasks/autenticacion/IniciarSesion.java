@@ -1,7 +1,8 @@
-package com.todo1.svp.tasks;
+package com.todo1.svp.tasks.autenticacion;
 
-import static com.todo1.svp.userinterfaces.UsuarioPage.BOTON_PRINCIPAL;
-import static com.todo1.svp.userinterfaces.UsuarioPage.CAMPO;
+import static com.todo1.svp.interactions.Esperar.esperar;
+import static com.todo1.svp.userinterfaces.autenticacion.UsuarioPage.BOTON_PRINCIPAL;
+import static com.todo1.svp.userinterfaces.autenticacion.UsuarioPage.CAMPO;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 
@@ -34,10 +35,11 @@ public class IniciarSesion implements Task {
           WaitUntil.the(CAMPO.of("usuario"), isClickable()),
           Enter.theValue(mapCredenciales.get("Usuario")).into(CAMPO.of("usuario")),
           Click.on(BOTON_PRINCIPAL.of("continuar")),
-          WaitUntil.the(CAMPO.of("usuario"), isNotVisible()),
+          WaitUntil.the(CAMPO.of("usuario"), isNotVisible()).forNoMoreThan(4000).milliseconds(),
           EscribirTeclado.escribir(mapCredenciales.get("Contrasena"), "clave"),
           Click.on(BOTON_PRINCIPAL.of("continuar")),
-          WaitUntil.the(CAMPO.of("clave"), isNotVisible()));
+          WaitUntil.the(CAMPO.of("clave"), isNotVisible()),
+          esperar(3000));
     }
   }
 }

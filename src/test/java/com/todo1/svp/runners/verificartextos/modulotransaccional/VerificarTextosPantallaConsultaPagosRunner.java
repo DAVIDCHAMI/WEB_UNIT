@@ -1,4 +1,4 @@
-package com.todo1.svp.runners.verificartextos;
+package com.todo1.svp.runners.verificartextos.modulotransaccional;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
@@ -7,7 +7,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-    features = "src/test/resources/features/verificartextos/verificar_textos_autenticacion.feature",
+    features =
+        "src/test/resources/features/verificartextos/modulotransaccional/verificar_textos_consulta_pagos.feature",
     glue = "com.todo1.svp.stepdefinitions",
     snippets = SnippetType.CAMELCASE)
-public class VerificarTextosPantallaAutenticacionRunner {}
+public class VerificarTextosPantallaConsultaPagosRunner {}

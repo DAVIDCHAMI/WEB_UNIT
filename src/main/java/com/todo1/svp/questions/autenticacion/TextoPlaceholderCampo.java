@@ -1,7 +1,7 @@
-package com.todo1.svp.questions;
+package com.todo1.svp.questions.autenticacion;
 
-import static com.todo1.svp.userinterfaces.GenerarClavePage.PLACEHOLDER_TYPE_LIST;
-import static com.todo1.svp.userinterfaces.UsuarioPage.CAMPO;
+import static com.todo1.svp.userinterfaces.autenticacion.GenerarClavePage.PLACEHOLDER_TYPE_LIST;
+import static com.todo1.svp.userinterfaces.autenticacion.UsuarioPage.CAMPO;
 
 import java.util.List;
 import net.serenitybdd.screenplay.Actor;

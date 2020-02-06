@@ -1,7 +1,7 @@
-package com.todo1.svp.tasks;
+package com.todo1.svp.tasks.autenticacion;
 
-import static com.todo1.svp.userinterfaces.GenerarClavePage.OPCION_TYPE_LIST;
-import static com.todo1.svp.userinterfaces.GenerarClavePage.SELECT_TYPE_LIST;
+import static com.todo1.svp.userinterfaces.autenticacion.GenerarClavePage.OPCION_TYPE_LIST;
+import static com.todo1.svp.userinterfaces.autenticacion.GenerarClavePage.SELECT_TYPE_LIST;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
 

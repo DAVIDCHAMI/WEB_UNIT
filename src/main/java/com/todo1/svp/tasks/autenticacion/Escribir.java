@@ -1,4 +1,4 @@
-package com.todo1.svp.tasks;
+package com.todo1.svp.tasks.autenticacion;
 
 import static com.todo1.svp.interactions.EscribirTeclado.escribir;
 import static net.serenitybdd.screenplay.Tasks.instrumented;

@@ -1,6 +1,6 @@
-package com.todo1.svp.questions;
+package com.todo1.svp.questions.autenticacion;
 
-import static com.todo1.svp.userinterfaces.UsuarioPage.CAMPO;
+import static com.todo1.svp.userinterfaces.autenticacion.UsuarioPage.CAMPO;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;

@@ -1,6 +1,6 @@
-package com.todo1.svp.questions;
+package com.todo1.svp.questions.autenticacion;
 
-import static com.todo1.svp.userinterfaces.ClavePage.ENMASCARAMIENTO_DATOS;
+import static com.todo1.svp.userinterfaces.autenticacion.ClavePage.ENMASCARAMIENTO_DATOS;
 
 import java.util.List;
 import net.serenitybdd.core.pages.WebElementFacade;

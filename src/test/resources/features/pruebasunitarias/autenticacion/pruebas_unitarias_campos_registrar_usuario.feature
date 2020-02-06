@@ -6,6 +6,29 @@ Característica: Pruebas unitarias campos en la pantalla registrar usuario
   Quiero probar las validaciones de los campos en la pantalla registrar usuario
   Para brindar un buen servicio
 
+  Escenario: Inicio sesion registro
+    Dado que camilo quiere ingresar a la pagina de usuario
+    Cuando el inicia sesion en la SVP
+      | Usuario  | Contrasena |
+      | 45267201 | 1234       |
+
+  Esquema del escenario: Validaciones campo frase de seguridad
+    Dado que camilo quiere ingresar a la pagina de registrar frase de seguridad del usuario
+    Cuando el escribe en el campo
+      | Campo a escribir | palabra a escribir |
+      | frase            | <Diligenciar>      |
+    Entonces el observa que en el campo frase hay <Numero de caracteres> caracteres
+    Y el observa en pantalla el siguiente mensaje de error: <Mensaje de error>
+
+    Ejemplos:
+      | Diligenciar                                                             | Numero de caracteres | Mensaje de error                         |
+      | asd                                                                     | 3                    | Ingresa una frase mínimo de 4 caracteres |
+      | asdñ                                                                    | 4                    |                                          |
+      | 1234567890                                                              | 10                   |                                          |
+      | !"#$%&/()=?¡\'´¨*[];:_{}-.,+@                                           | 0                    | Ingresa una frase mínimo de 4 caracteres |
+      | Juan Camilo Múrcíá Rámós                                                | 24                   |                                          |
+      | qwertyuiop asdfghjklñ zxcvbnm @!"#$%&/()= qwertyuiop asdfghjklñ zxcvbnm | 50                   |                                          |
+
   Esquema del escenario: Validaciones campo correo electrónico
     Dado que camilo quiere ingresar a la pagina de registrar usuario
     Cuando el escribe en el campo
@@ -81,23 +104,6 @@ Característica: Pruebas unitarias campos en la pantalla registrar usuario
       | Crea un usuario               |
       | Ingresa el correo electrónico |
       | Ingresa el número de celular  |
-
-  Esquema del escenario: Validaciones campo frase de seguridad
-    Dado que camilo quiere ingresar a la pagina de registrar frase de seguridad del usuario
-    Cuando el escribe en el campo
-      | Campo a escribir | palabra a escribir |
-      | frase            | <Diligenciar>      |
-    Entonces el observa que en el campo frase hay <Numero de caracteres> caracteres
-    Y el observa en pantalla el siguiente mensaje de error: <Mensaje de error>
-
-    Ejemplos:
-      | Diligenciar                                                             | Numero de caracteres | Mensaje de error                         |
-      | asd                                                                     | 3                    | Ingresa una frase mínimo de 4 caracteres |
-      | asdñ                                                                    | 4                    |                                          |
-      | 1234567890                                                              | 10                   |                                          |
-      | !"#$%&/()=?¡\'´¨*[];:_{}-.,+@                                           | 0                    | Ingresa una frase mínimo de 4 caracteres |
-      | Juan Camilo Múrcíá Rámós                                                | 24                   |                                          |
-      | qwertyuiop asdfghjklñ zxcvbnm @!"#$%&/()= qwertyuiop asdfghjklñ zxcvbnm | 50                   |                                          |
 
   Esquema del escenario: Validaciones campo Type list categoria imagenes
     Dado que camilo quiere ingresar a la pagina de registrar imagen de seguridad del usuario
