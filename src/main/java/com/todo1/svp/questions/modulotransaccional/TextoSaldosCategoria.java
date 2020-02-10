@@ -1,7 +1,7 @@
-package com.todo1.svp.questions;
+package com.todo1.svp.questions.modulotransaccional;
 
 import static com.todo1.svp.interactions.Esperar.esperar;
-import static com.todo1.svp.userinterfaces.SaldosCategoriaPage.CATEGORIA;
+import static com.todo1.svp.userinterfaces.modulotransaccional.SaldosCategoriaPage.CATEGORIA;
 import static com.todo1.svp.utils.enums.EnumFormatoMoneda.DOLARES;
 import static com.todo1.svp.utils.enums.EnumFormatoMoneda.PESOS;
 
@@ -42,7 +42,7 @@ public class TextoSaldosCategoria implements Question<Boolean> {
     esperar(2000);
     for (Map<String, String> texto : textos) {
       descripcion = texto.get("Descripcion");
-      if ("Crediï¿½gil".equals(descripcion)) {
+      if ("Crediágil".equals(descripcion)) {
         resultado =
             verificarTextoSaldos(actor, texto.get("Descripcion"))
                 & verificarFormatoValor(actor, texto.get("Descripcion"));
@@ -70,11 +70,11 @@ public class TextoSaldosCategoria implements Question<Boolean> {
                         + "')]"));
     switch (categoria) {
       case "Cuentas":
-      case "Crï¿½ditos":
-      case "Crediï¿½gil":
+      case "Créditos":
+      case "Crediágil":
         resultado = obtenerResultadoValor();
         break;
-      case "Tarjetas de crï¿½dito":
+      case "Tarjetas de crédito":
         resultado = obtenerResultadoValoresTarjetasCredito();
         break;
       case "Inversiones":
@@ -88,7 +88,7 @@ public class TextoSaldosCategoria implements Question<Boolean> {
 
   private boolean obtenerResultadoValoresInversiones() {
     boolean resultado;
-    if (!"Inversiï¿½n virtual".equals(descripcion)) {
+    if (!"Inversión virtual".equals(descripcion)) {
       String saldoDisponible =
           categoriaProducto
               .findElement(By.xpath("./../../../..//div[contains(.,'Saldo disponible')]/span[1]"))

@@ -1,6 +1,6 @@
-package com.todo1.svp.questions;
+package com.todo1.svp.questions.autenticacion;
 
-import static com.todo1.svp.userinterfaces.TextoPantallaPage.*;
+import static com.todo1.svp.userinterfaces.autenticacion.TextoPantallaPage.*;
 
 import java.util.List;
 import net.serenitybdd.screenplay.Actor;

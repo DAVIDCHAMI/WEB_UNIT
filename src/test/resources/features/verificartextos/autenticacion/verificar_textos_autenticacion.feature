@@ -95,14 +95,14 @@ Característica: Verificar texto y botones en la funcionalidad de autenticacion
     Y el observa que el boton: registrar esta Habilitado
 
   @pantalla_registrar_usuario_(confirmar_registro)
-  Escenario: Verificar texto en la pantalla registrar usuario (Verificar el registro)
+  Escenario: Verificar texto en la pantalla registrar usuario (confirmar_registro)
     Cuando que camilo quiere ingresar a la pagina de confirmar registro
     Entonces el observa los textos correctamente
-      | Registrar usuario        |
-      | ¡Registro exitoso!       |
-      | Número de celular        |
-      | Correo electrónico       |
-      | Usuario                  |
-      | Comprobante No           |
-      | Fecha y hora transacción |
+      | Registrar usuario  |
+      | ¡Registro exitoso! |
+      | Número de celular  |
+      | Correo electrónico |
+      | Usuario            |
+      | Comprobante No     |
+      | Fecha y hora       |
     Y el observa que el boton: continuar esta Habilitado

@@ -6,19 +6,6 @@ Característica: Verificar texto y botones en la funcionalidad de saldos por pro
   Quiero verificar los textos y botones mostrados en pantalla
   Para brindar un buen servicio
 
-  Escenario: Verificar texto en la categoria de crediagil
-    Dado que camilo quiere ingresar a la pagina de usuario
-    Cuando el inicia sesion en la SVP
-      | Usuario      | Contrasena |
-      | usuariotodo1 | 1234       |
-    Entonces el observa los textos correctamente
-      | Hola Arialdo |
-    Y el observa los textos correctamente en la categoria Crediágil
-      | Descripcion |
-      | Crediágil   |
-    Y el observa que el boton: desembolsar esta Habilitado
-
-
   Esquema del escenario: Verificar texto en la categoria de inversiones
     Dado que camilo quiere ingresar a la pagina de usuario
     Cuando el inicia sesion en la SVP
@@ -34,6 +21,18 @@ Característica: Verificar texto y botones en la funcionalidad de saldos por pro
       | Nombre             | Producto          | Numero        |
       | Fondo de inversión | FIDUCUENTA        | 0233002000445 |
       | Inversión          | Inversión virtual | 27600131486   |
+
+  Escenario: Verificar texto en la categoria de crediagil
+    Dado que camilo quiere ingresar a la pagina de usuario
+    Cuando el inicia sesion en la SVP
+      | Usuario    | Contrasena |
+      | usucayca01 | 1234       |
+    Entonces el observa los textos correctamente
+      | Hola Pedro |
+    Y el observa los textos correctamente en la categoria Crediágil
+      | Descripcion |
+      | Crediágil   |
+    Y el observa que el boton: desembolsar esta Habilitado
 
   Esquema del escenario: Verificar texto en la categoria de cuentas
     Dado que camilo quiere ingresar a la pagina de usuario
@@ -65,11 +64,11 @@ Característica: Verificar texto y botones en la funcionalidad de saldos por pro
     Y el observa que el boton: <Boton> esta Habilitado
 
     Ejemplos:
-      | Usuario   | Contrasena | Titulo           | Nombre              | Producto                  | Numero   | Boton |
-      | usuctdc1  | 1234       | Hola Andres      | Tarjetas de crédito | Personal American Express | ****0783 | pagar |
-      | usuctdc1  | 1234       | Hola Andres      | Tarjetas de crédito | Personal Visa             | ****9605 | pagar |
-      | usuctdc1  | 1234       | Hola Andres      | Tarjetas de crédito | Personal Mastercard       | ****9907 | pagar |
-      | usua18rio | 1234       | Hola Bancolombia | Tarjeta Virtual     | e-Card Mastercard         | ****0754 | pagar |
+      | Usuario       | Contrasena | Titulo           | Nombre              | Producto                  | Numero   | Boton |
+      | usuctdc1      | 1234       | Hola Julia       | Tarjetas de crédito | Personal American Express | ****5988 | pagar |
+      | usuctdc1      | 1234       | Hola Julia       | Tarjetas de crédito | Personal Visa             | ****0690 | pagar |
+      | usuctdc1      | 1234       | Hola Julia       | Tarjetas de crédito | Personal Mastercard       | ****2284 | pagar |
+      | pruebaecard02 | 1234       | Hola Bancolombia | Tarjeta de crédito  | e-Card Mastercard         | ****7371 | pagar |
 
   Esquema del escenario: Verificar texto en la categoria de Creditos
     Dado que camilo quiere ingresar a la pagina de usuario

@@ -1,4 +1,4 @@
-package com.todo1.svp.runners.verificartextos;
+package com.todo1.svp.runners.pruebasunitarias.modulotransaccional;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
     features =
-        "src/test/resources/features/verificartextos/verificar_textos_saldos_producto.feature",
+        "src/test/resources/features/pruebasunitarias/modulotransaccional/pruebas_unitarias_detalles_movimientos.feature",
     glue = "com.todo1.svp.stepdefinitions",
     snippets = SnippetType.CAMELCASE)
-public class VerificarTextosSaldosProductoRunner {}
+public class PruebasUnitariasDetallesCuentasRunner {}

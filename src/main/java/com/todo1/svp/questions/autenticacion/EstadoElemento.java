@@ -1,7 +1,7 @@
-package com.todo1.svp.questions;
+package com.todo1.svp.questions.autenticacion;
 
-import static com.todo1.svp.userinterfaces.ClavePage.IMAGEN_SEGURIDAD;
-import static com.todo1.svp.userinterfaces.UsuarioPage.*;
+import static com.todo1.svp.userinterfaces.autenticacion.ClavePage.IMAGEN_SEGURIDAD;
+import static com.todo1.svp.userinterfaces.autenticacion.UsuarioPage.*;
 
 import com.todo1.svp.utils.enums.EnumEstadoElemento;
 import net.serenitybdd.screenplay.Actor;

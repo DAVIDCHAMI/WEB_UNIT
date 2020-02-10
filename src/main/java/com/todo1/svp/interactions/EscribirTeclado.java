@@ -1,7 +1,7 @@
 package com.todo1.svp.interactions;
 
-import static com.todo1.svp.userinterfaces.UsuarioPage.CAMPO;
-import static com.todo1.svp.userinterfaces.UsuarioPage.LOGO_BANCOLOMBIA;
+import static com.todo1.svp.userinterfaces.autenticacion.UsuarioPage.CAMPO;
+import static com.todo1.svp.userinterfaces.autenticacion.UsuarioPage.LOGO_BANCOLOMBIA;
 import static com.todo1.svp.utils.MapeoTeclado.escribirCaracter;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;

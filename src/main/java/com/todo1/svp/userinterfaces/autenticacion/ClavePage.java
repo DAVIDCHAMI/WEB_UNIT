@@ -1,4 +1,4 @@
-package com.todo1.svp.userinterfaces;
+package com.todo1.svp.userinterfaces.autenticacion;
 
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
