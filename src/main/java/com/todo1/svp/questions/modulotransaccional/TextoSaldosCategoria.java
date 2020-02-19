@@ -80,7 +80,7 @@ public class TextoSaldosCategoria implements Question<Boolean> {
       case "Crediagil":
         resultado = obtenerResultadoValorCrediagil();
         break;
-      case "Tarjetas de cr?dito":
+      case "Tarjetas de credito":
         resultado = obtenerResultadoValoresTarjetasCredito();
         break;
       case "Inversiones":
