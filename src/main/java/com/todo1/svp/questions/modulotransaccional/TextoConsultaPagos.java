@@ -26,7 +26,7 @@ public class TextoConsultaPagos implements Question<Boolean> {
   @Override
   public Boolean answeredBy(Actor actor) {
     boolean resultado = true;
-    actor.attemptsTo(Click.on(CATEGORIA_PAGOS.of(categoriaPagos)));
+    actor.attemptsTo(Click.on(CATEGORIA_PAGOS.of(categoriaPagos)), esperar(3000));
     for (String textosValidar : texto) {
       resultado = verificarTextoPagos(actor, textosValidar);
       if (!resultado) {

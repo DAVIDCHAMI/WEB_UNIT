@@ -16,7 +16,7 @@ public class MapeoTeclado {
     caracteres.put(' ', MapeoTeclado::escribirEspacio);
     caracteres.put('@', MapeoTeclado::escribirArroba);
     caracteres.put('!', MapeoTeclado::escribirCerrarSignoExclamacion);
-    caracteres.put('¡', MapeoTeclado::escribirAbrirSignoExclamacion);
+    caracteres.put('\u00a1', MapeoTeclado::escribirAbrirSignoExclamacion);
     caracteres.put('#', MapeoTeclado::escribirAlmohadilla);
     caracteres.put('$', MapeoTeclado::escribirSignoPesos);
     caracteres.put('%', MapeoTeclado::escribirSignoPorcentaje);
@@ -25,7 +25,7 @@ public class MapeoTeclado {
     caracteres.put('(', MapeoTeclado::escribirAbrirParentesisParentesis);
     caracteres.put(')', MapeoTeclado::escribirCerrarParentesisParentesis);
     caracteres.put('?', MapeoTeclado::escribirCerrarSignoInterrogacion);
-    caracteres.put('¿', MapeoTeclado::escribirAbrirSignoInterrogacion);
+    caracteres.put('\u00bf', MapeoTeclado::escribirAbrirSignoInterrogacion);
     caracteres.put('*', MapeoTeclado::escribirAsterisco);
     caracteres.put('[', MapeoTeclado::escribirAbrirCorchete);
     caracteres.put(']', MapeoTeclado::escribirCerraCorchete);
@@ -39,7 +39,7 @@ public class MapeoTeclado {
     caracteres.put('}', MapeoTeclado::escribirCerrarLLaveCurva);
     caracteres.put('>', MapeoTeclado::escribirMayorQue);
     caracteres.put('<', MapeoTeclado::escribirMenorQue);
-    caracteres.put('ñ', MapeoTeclado::escribirEnie);
+    caracteres.put('\u00f1', MapeoTeclado::escribirEnie);
     caracteres.put('=', MapeoTeclado::escribirSignoIgual);
     caracteres.put('.', MapeoTeclado::escribirPunto);
     caracteres.put(',', MapeoTeclado::escribirComa);
@@ -69,11 +69,11 @@ public class MapeoTeclado {
     caracteres.put('i', MapeoTeclado::escribirLetraI);
     caracteres.put('o', MapeoTeclado::escribirLetraO);
     caracteres.put('p', MapeoTeclado::escribirLetraP);
-    caracteres.put('á', MapeoTeclado::escribirAcentoLetraA);
-    caracteres.put('é', MapeoTeclado::escribirAcentoLetraE);
-    caracteres.put('í', MapeoTeclado::escribirAcentoLetraI);
-    caracteres.put('ó', MapeoTeclado::escribirAcentoLetraO);
-    caracteres.put('ú', MapeoTeclado::escribirAcentoLetraU);
+    caracteres.put('\u00e1', MapeoTeclado::escribirAcentoLetraA);
+    caracteres.put('\u00e9', MapeoTeclado::escribirAcentoLetraE);
+    caracteres.put('\u00ed', MapeoTeclado::escribirAcentoLetraI);
+    caracteres.put('\u00f3', MapeoTeclado::escribirAcentoLetraO);
+    caracteres.put('\u00fa', MapeoTeclado::escribirAcentoLetraU);
     caracteres.put('1', MapeoTeclado::escribirNumero1);
     caracteres.put('2', MapeoTeclado::escribirNumero2);
     caracteres.put('3', MapeoTeclado::escribirNumero3);

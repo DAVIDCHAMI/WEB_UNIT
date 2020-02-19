@@ -29,7 +29,13 @@ apply plugin: 'org.sonarqube'
 
 compileJava.dependsOn 'googleJavaFormat'
 
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
 tasks.withType(Test) {
+    systemProperty "file.encoding", "UTF-8"
     systemProperty 'webdriver.driver', System.getProperty('webdriver.driver')
 }
 

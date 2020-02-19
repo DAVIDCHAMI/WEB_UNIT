@@ -15,7 +15,6 @@ Característica: Verificar texto y botones en la funcionalidad de autenticacion
     Y el observa un tooltip con un mensaje de ayuda
       | La clave no debe tener números repetidos ni consecutivos. |
 
-
   @pantalla_ingresar_usuario
   Escenario: Verificar texto en la pantalla ingresar usuario
     Cuando camilo ingresa a la pagina de usuario
