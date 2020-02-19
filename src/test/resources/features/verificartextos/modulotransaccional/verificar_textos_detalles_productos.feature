@@ -67,7 +67,7 @@ Característica: Verificar texto y botones en la funcionalidad de detalles
       | Deuda a la fecha en pesos        |
       | TRM                              |
       | Fecha próximo pago               |
-      | Pago mínimo en  pesos            |
+      | Pago mínimo en pesos             |
       | Pago total en pesos              |
       | Deuda a la fecha en dólares      |
       | Pago mínimo en dólares           |
@@ -93,7 +93,7 @@ Característica: Verificar texto y botones en la funcionalidad de detalles
       | Deuda a la fecha en pesos        |
       | TRM                              |
       | Fecha próximo pago               |
-      | Pago mínimo en  pesos            |
+      | Pago mínimo en pesos             |
       | Pago total en pesos              |
       | Deuda a la fecha en dólares      |
       | Pago mínimo en dólares           |
@@ -104,3 +104,120 @@ Característica: Verificar texto y botones en la funcionalidad de detalles
     Y el observa un tooltip con un mensaje de ayuda
       | Valor disponible para realizar avances en efectivo o traslados de dinero a cuentas propias e inscritas Bancolombia. |
       | Te brinda mayor seguridad al momento de la compra.                                                                  |
+
+  Escenario: Verificar texto detalles creditos hipotecarios
+    Dado que camilo quiere ingresar a la pagina de usuario
+    Y el inicia sesion en la SVP
+      | Usuario   | Contrasena |
+      | chipote95 | 1234       |
+    Cuando el ingresa a los detalles de Créditos con numero 10001263181
+    Entonces el observa los textos correctamente
+      | Crédito Hipotecario            |
+      | Pagar                          |
+      | Ver extractos                  |
+      | Exportar                       |
+      | Tipo de crédito                |
+      | Capital vigente                |
+      | Deuda a la fecha               |
+      | Plan                           |
+      | Tasa de interés efectiva anual |
+      | Fecha de vencimiento           |
+      | Número de cuota                |
+      | Fecha próxima cuota            |
+      | Pago mínimo                    |
+      | Pago total                     |
+      | Saldo en mora                  |
+      | Intereses de mora              |
+      | Número de cuotas en mora       |
+    Y el observa un tooltip con un mensaje de ayuda
+      | Valor de la deuda a la  fecha sin incluir  intereses ni otros cargos. |
+      | Valor total en mora  generado a la fecha.                             |
+      | Valor del interés de mora  generado a la fecha.                       |
+    Y el observa que el boton: pagar esta Habilitado
+
+  Escenario: Verificar texto detalles inversion virtual
+    Dado que camilo quiere ingresar a la pagina de usuario
+    Y el inicia sesion en la SVP
+      | Usuario  | Contrasena |
+      | fiduqa02 | 1234       |
+    Cuando el ingresa a los detalles de Inversiones con numero 27600131486
+    Entonces el observa los textos correctamente
+      | Inversión                         |
+      | Exportar                          |
+      | Tipo de inversión                 |
+      | Fecha de apertura                 |
+      | Capital                           |
+      | Plazo en días                     |
+      | Periodicidad de intereses en días |
+      | Fecha de vencimiento              |
+      | Tasa de interés efectiva anual    |
+      | Tasa de interés nominal           |
+      | Intereses pagados                 |
+      | Intereses del periodo             |
+    Y el observa un tooltip con un mensaje de ayuda
+      | Número de días en los que se recibe el pago de los intereses.                                                                     |
+      | Es la tasa que calcula el valor del interés esperado en un año teniendo en cuenta  el capital invertido y los intereses generados |
+      | Es la tasa  que calcula el intéres en un periodo de tiempo determinado teniendo en cuenta solo el capital invertido.              |
+      | Valor de los intereses pagados o abonados a la fecha de la consulta.                                                              |
+      | Valor de los intereses que serán pagados en el periodo seleccionado en la inversión.                                              |
+
+  Escenario: Verificar texto detalles fondos de inversión
+    Dado que camilo quiere ingresar a la pagina de usuario
+    Y el inicia sesion en la SVP
+      | Usuario    | Contrasena |
+      | fidurenta2 | 1234       |
+    Cuando el ingresa a los detalles de Inversiones con numero 7001000083018
+    Entonces el observa los textos correctamente
+      | Fondo de inversión   |
+      | Transferir dinero    |
+      | Ver extractos        |
+      | Exportar             |
+      | Tipo de fondo        |
+      | Saldo disponible     |
+      | Saldo total          |
+      | Fecha de vencimiento |
+
+  Escenario: Verificar textos detalles creditos de consumo
+    Dado que camilo quiere ingresar a la pagina de usuario
+    Y el inicia sesion en la SVP
+      | Usuario   | Contrasena |
+      | chipote95 | 1234       |
+    Cuando el ingresa a los detalles de Créditos con numero 29281026324
+    Entonces el observa los textos correctamente
+      | Préstamo             |
+      | Pagar                |
+      | Ver extractos        |
+      | Exportar             |
+      | Tipo de crédito      |
+      | Capital vigente      |
+      | Deuda a la fecha     |
+      | Fecha de desembolso  |
+      | Valor desembolsado   |
+      | Fecha próximo pago   |
+      | Pago mínimo          |
+      | Pago total           |
+      | Intereses corrientes |
+      | Saldo en mora        |
+      | Intereses de mora    |
+      | Otros cargos         |
+    Y el observa un tooltip con un mensaje de ayuda
+      | Valor de la deuda a la fecha sin incluir intereses ni otros cargos. |
+      | Valor total en mora   generado a la fecha.                          |
+      | Valor del interés de   mora generado a la fecha.                    |
+      | Valor de los seguros asociados al crédito                           |
+
+  Escenario: Verificar textos detalles crediagil
+    Dado que camilo quiere ingresar a la pagina de usuario
+    Y el inicia sesion en la SVP
+      | Usuario    | Contrasena |
+      | usucayca01 | 1234       |
+    Cuando el ingresa a los detalles de Crediágil con numero Crediágil
+    Entonces el observa los textos correctamente
+      | Desembolsar     |
+      | Exportar        |
+      | Cupo asignado   |
+      | Cupo utilizado  |
+      | Cupo disponible |
+      | Cupo en canje   |
+    Y el observa un tooltip con un mensaje de ayuda
+      | Valor de los cheques consignados que están pendientes de autorización. |

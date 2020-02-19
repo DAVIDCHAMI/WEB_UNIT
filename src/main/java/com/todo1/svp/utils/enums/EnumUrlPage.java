@@ -1,7 +1,7 @@
 package com.todo1.svp.utils.enums;
 
 public enum EnumUrlPage {
-  URL_USUARIO_PAGE("https://kymabank-qa-ui.todo-1.com/BC_SVP_User/", "¡Hola! "),
+  URL_USUARIO_PAGE("https://kymabank-qa-ui.todo-1.com/BC_SVP_User/", "\u00a1Hola! "),
   URL_RECORDAR_USUARIO_PAGE(
       "https://kymabank-qa-ui.todo-1.com/BC_SVP_User/ForgotUser", "Recordar usuario"),
   URL_GENERAR_CLAVE_PAGE(

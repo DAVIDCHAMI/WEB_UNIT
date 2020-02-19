@@ -10,7 +10,7 @@ Característica: Verificar texto y botones en la funcionalidad de saldos por pro
     Dado que camilo quiere ingresar a la pagina de usuario
     Cuando el inicia sesion en la SVP
       | Usuario  | Contrasena |
-      | usuccf02 | 1234       |
+      | fiduqa02 | 1234       |
     Entonces el observa los textos correctamente
       | Hola Abundio |
     Y el observa los textos correctamente en la categoria Inversiones

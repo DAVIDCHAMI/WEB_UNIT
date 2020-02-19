@@ -38,7 +38,7 @@ public class IniciarSesion implements Task {
           WaitUntil.the(CAMPO.of("usuario"), isNotVisible()).forNoMoreThan(4000).milliseconds(),
           EscribirTeclado.escribir(mapCredenciales.get("Contrasena"), "clave"),
           Click.on(BOTON_PRINCIPAL.of("continuar")),
-          WaitUntil.the(CAMPO.of("clave"), isNotVisible()),
+          WaitUntil.the(CAMPO.of("clave"), isNotVisible()).forNoMoreThan(10000).milliseconds(),
           esperar(3000));
     }
   }

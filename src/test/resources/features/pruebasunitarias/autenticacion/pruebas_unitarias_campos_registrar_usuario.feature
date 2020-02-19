@@ -57,13 +57,13 @@ Característica: Pruebas unitarias campos en la pantalla registrar usuario
     Y el observa en pantalla el siguiente mensaje de error: <Mensaje de error>
 
     Ejemplos:
-      | Diligenciar                             | Numero de caracteres | Mensaje de error                                                  |
-      | qwertyuipodkfjgutyrhfncbcuduhdvueheuf   | 20                   | Debe tener entre 8 y 20 caracteres, usa letras y mínimo un número |
-      | qwertyuipodkfjgutyrh34fncbcuduhdvueheuf | 20                   |                                                                   |
-      | Juan$%&/.,Mruciañ12                     | 13                   |                                                                   |
-      | !"#$%&/()=?¡\'´¨*[];:_{}-.,+@           | 0                    |                                                                   |
-      | 123456789123456789123456789             | 20                   | Debe tener entre 8 y 20 caracteres, usa letras y mínimo un número |
-      | 0JuanAndresñ                            | 12                   |                                                                   |
+      | Diligenciar                             | Numero de caracteres | Mensaje de error                                                            |
+      | qwertyuipodkfjgutyrhfncbcuduhdvueheuf   | 20                   | Ingresa un usuario entre 8 y 20 caracteres, usa letras y máximo dos números |
+      | qwertyuipodkfjgutyrh34fncbcuduhdvueheuf | 20                   |                                                                             |
+      | Juan$%&/.,Mruciañ12                     | 13                   |                                                                             |
+      | !"#$%&/()=?¡\'´¨*[];:_{}-.,+@           | 0                    |                                                                             |
+      | 123456789123456789123456789             | 20                   | Ingresa un usuario entre 8 y 20 caracteres, usa letras y máximo dos números |
+      | 0JuanAndresñ                            | 12                   |                                                                             |
 
   Esquema del escenario: Validaciones campo numero de celular
     Dado que camilo quiere ingresar a la pagina de registrar usuario

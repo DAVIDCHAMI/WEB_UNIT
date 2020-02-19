@@ -2,6 +2,7 @@ package com.todo1.svp.questions.modulotransaccional;
 
 import static com.todo1.svp.interactions.Esperar.esperar;
 import static com.todo1.svp.userinterfaces.modulotransaccional.SaldosCategoriaPage.CATEGORIA;
+import static com.todo1.svp.utils.Utilidades.eliminarTildesCadena;
 import static com.todo1.svp.utils.enums.EnumFormatoMoneda.DOLARES;
 import static com.todo1.svp.utils.enums.EnumFormatoMoneda.PESOS;
 
@@ -20,6 +21,9 @@ public class TextoSaldosCategoria implements Question<Boolean> {
   private String categoria;
   private WebElement categoriaProducto;
   private String descripcion;
+  private static final String DESCRIPCION = "Descripcion";
+  private static final String NOMBRE_PERZONALIZADO = "Nombre personalizado";
+  private static final String NUMERO_PRODUCTO = "Numero producto";
 
   public TextoSaldosCategoria(String tipoCategoria, List<Map<String, String>> textos) {
     this.textos = textos;
@@ -41,17 +45,17 @@ public class TextoSaldosCategoria implements Question<Boolean> {
     }
     esperar(2000);
     for (Map<String, String> texto : textos) {
-      descripcion = texto.get("Descripcion");
-      if ("Crediágil".equals(descripcion)) {
+      descripcion = texto.get(DESCRIPCION);
+      if ("Crediagil".equals(eliminarTildesCadena(categoria))) {
         resultado =
-            verificarTextoSaldos(actor, texto.get("Descripcion"))
-                & verificarFormatoValor(actor, texto.get("Descripcion"));
+            verificarTextoSaldos(actor, texto.get(DESCRIPCION))
+                & verificarFormatoValor(actor, texto.get(DESCRIPCION));
       } else {
         resultado =
-            verificarTextoSaldos(actor, texto.get("Nombre personalizado"))
-                & verificarTextoSaldos(actor, texto.get("Descripcion"))
-                & verificarTextoSaldos(actor, texto.get("Numero producto"))
-                & verificarFormatoValor(actor, texto.get("Numero producto"));
+            verificarTextoSaldos(actor, texto.get(NOMBRE_PERZONALIZADO))
+                & verificarTextoSaldos(actor, texto.get(DESCRIPCION))
+                & verificarTextoSaldos(actor, texto.get(NUMERO_PRODUCTO))
+                & verificarFormatoValor(actor, texto.get(NUMERO_PRODUCTO));
       }
     }
     return resultado;
@@ -68,13 +72,15 @@ public class TextoSaldosCategoria implements Question<Boolean> {
                     ".//div[@class='account-row-content']//span[contains(.,'"
                         + numeroProducto
                         + "')]"));
-    switch (categoria) {
+    switch (eliminarTildesCadena(categoria)) {
       case "Cuentas":
-      case "Créditos":
-      case "Crediágil":
+      case "Creditos":
         resultado = obtenerResultadoValor();
         break;
-      case "Tarjetas de crédito":
+      case "Crediagil":
+        resultado = obtenerResultadoValorCrediagil();
+        break;
+      case "Tarjetas de credito":
         resultado = obtenerResultadoValoresTarjetasCredito();
         break;
       case "Inversiones":
@@ -88,7 +94,7 @@ public class TextoSaldosCategoria implements Question<Boolean> {
 
   private boolean obtenerResultadoValoresInversiones() {
     boolean resultado;
-    if (!"Inversión virtual".equals(descripcion)) {
+    if (!"Inversion virtual".equals(eliminarTildesCadena(descripcion))) {
       String saldoDisponible =
           categoriaProducto
               .findElement(By.xpath("./../../../..//div[contains(.,'Saldo disponible')]/span[1]"))
@@ -124,6 +130,17 @@ public class TextoSaldosCategoria implements Question<Boolean> {
                 By.xpath(
                     "./../../../..//div/span["
                         + "contains(.,'Saldo disponible') or contains(.,'Deuda a la fecha')]/../../..//div/span[contains(.,'$')]"))
+            .getText();
+    return verificarFormatoMoneda(valoresCredito);
+  }
+
+  private boolean obtenerResultadoValorCrediagil() {
+    String valoresCredito =
+        categoriaProducto
+            .findElement(
+                By.xpath(
+                    "./../../../..//div["
+                        + "contains(.,'Cupo disponible')]/../../..//div/span[contains(.,'$')]"))
             .getText();
     return verificarFormatoMoneda(valoresCredito);
   }
