@@ -6,7 +6,6 @@ out/
 # Gradle files
 .gradle
 build/
-gradlew
 
 # Compiled class file
 *.class
@@ -39,7 +38,6 @@ gradlew
 *.rar
 *.war
 *.ear
-*.bat
 
 # ignore files target
 target/
