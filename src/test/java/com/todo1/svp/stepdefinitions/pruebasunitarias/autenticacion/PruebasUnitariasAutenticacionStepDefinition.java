@@ -14,9 +14,7 @@ import com.todo1.svp.exceptions.EstadoElementoIncorrectoException;
 import com.todo1.svp.exceptions.TextoNoVisibleException;
 import com.todo1.svp.interactions.AbrirNavegador;
 import com.todo1.svp.questions.autenticacion.*;
-import com.todo1.svp.tasks.autenticacion.Escribir;
-import com.todo1.svp.tasks.autenticacion.IniciarSesion;
-import com.todo1.svp.tasks.autenticacion.Seleccionar;
+import com.todo1.svp.tasks.autenticacion.*;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
@@ -31,6 +29,11 @@ public class PruebasUnitariasAutenticacionStepDefinition {
     theActorInTheSpotlight().attemptsTo(IniciarSesion.svp(credenciales));
   }
 
+  @Cuando("el inicia sesion en la SVP con el robot")
+  public void iniciarSesionRobot(List<Map<String, String>> credenciales) {
+    theActorInTheSpotlight().attemptsTo(IniciarSesionRobot.svp(credenciales));
+  }
+
   @Dado("que (.*) quiere ingresar a la pagina de (.*)")
   @Cuando("(.*) ingresa a la pagina de (.*)")
   public void ingresarPagina(String nombreActor, String url) {
@@ -43,8 +46,13 @@ public class PruebasUnitariasAutenticacionStepDefinition {
   }
 
   @Cuando("^el escribe en (?:el campo|los campos)$")
-  public void ingresarUsuario(List<Map<String, String>> campos) {
+  public void ingresarTexto(List<Map<String, String>> campos) {
     theActorInTheSpotlight().attemptsTo(Escribir.enElCampo(campos));
+  }
+
+  @Cuando("^el escribe con el robot en (?:el campo|los campos)$")
+  public void ingresarTextoRobot(List<Map<String, String>> campos) {
+    theActorInTheSpotlight().attemptsTo(EscribirRobot.enElCampo(campos));
   }
 
   @Cuando("el ingresa a la pantalla clave")
