@@ -1,5 +1,6 @@
 package com.todo1.svp.tasks.autenticacion;
 
+import static com.todo1.svp.interactions.EscribirTeclado.escribir;
 import static com.todo1.svp.userinterfaces.autenticacion.UsuarioPage.CAMPO;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
@@ -27,7 +28,11 @@ public class Escribir implements Task {
       String campoEscribir = datatable.get("Campo a escribir");
       String palabraEscribir = datatable.get("palabra a escribir");
       if (!palabraEscribir.isEmpty()) {
-        actor.attemptsTo(Enter.theValue(palabraEscribir).into(CAMPO.of(campoEscribir)));
+        if (System.getProperty("ejecucion").equals("local")) {
+          actor.attemptsTo(escribir(palabraEscribir, campoEscribir));
+        } else {
+          actor.attemptsTo(Enter.theValue(palabraEscribir).into(CAMPO.of(campoEscribir)));
+        }
       }
     }
   }

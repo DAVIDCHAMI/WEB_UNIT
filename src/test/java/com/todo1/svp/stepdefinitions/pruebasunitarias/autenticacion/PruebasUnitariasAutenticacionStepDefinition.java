@@ -29,11 +29,6 @@ public class PruebasUnitariasAutenticacionStepDefinition {
     theActorInTheSpotlight().attemptsTo(IniciarSesion.svp(credenciales));
   }
 
-  @Cuando("el inicia sesion en la SVP con el robot")
-  public void iniciarSesionRobot(List<Map<String, String>> credenciales) {
-    theActorInTheSpotlight().attemptsTo(IniciarSesionRobot.svp(credenciales));
-  }
-
   @Dado("que (.*) quiere ingresar a la pagina de (.*)")
   @Cuando("(.*) ingresa a la pagina de (.*)")
   public void ingresarPagina(String nombreActor, String url) {
@@ -48,11 +43,6 @@ public class PruebasUnitariasAutenticacionStepDefinition {
   @Cuando("^el escribe en (?:el campo|los campos)$")
   public void ingresarTexto(List<Map<String, String>> campos) {
     theActorInTheSpotlight().attemptsTo(Escribir.enElCampo(campos));
-  }
-
-  @Cuando("^el escribe con el robot en (?:el campo|los campos)$")
-  public void ingresarTextoRobot(List<Map<String, String>> campos) {
-    theActorInTheSpotlight().attemptsTo(EscribirRobot.enElCampo(campos));
   }
 
   @Cuando("el ingresa a la pantalla clave")
