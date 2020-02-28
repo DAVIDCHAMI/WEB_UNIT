@@ -33,7 +33,7 @@ Característica: Pruebas unitarias campos en la pantalla generar clave
 
   Esquema del escenario: Validaciones campo número de documento
     Dado que camilo quiere ingresar a la pagina de generar clave
-    Cuando el escribe con el robot en el campo
+    Cuando el escribe en el campo
       | Campo a escribir    | palabra a escribir |
       | número de documento | <Diligenciar>      |
     Entonces el observa que en el campo número de documento hay <Numero de caracteres> caracteres
@@ -51,7 +51,7 @@ Característica: Pruebas unitarias campos en la pantalla generar clave
 
   Esquema del escenario: Validaciones campo ingresar nueva clave
     Dado que camilo quiere ingresar a la pagina de generar clave
-    Cuando el escribe con el robot en el campo
+    Cuando el escribe en el campo
       | Campo a escribir       | palabra a escribir |
       | Ingresa la nueva clave | <Diligenciar>      |
     Entonces el observa que en el campo Ingresa la nueva clave hay <Numero de caracteres> caracteres
@@ -70,7 +70,7 @@ Característica: Pruebas unitarias campos en la pantalla generar clave
 
   Esquema del escenario: Validaciones campo confirmar nueva clave
     Dado que camilo quiere ingresar a la pagina de generar clave
-    Cuando el escribe con el robot en el campo
+    Cuando el escribe en el campo
       | Campo a escribir        | palabra a escribir |
       | Confirma la nueva clave | <Diligenciar>      |
     Entonces el observa que en el campo Confirma la nueva clave hay <Numero de caracteres> caracteres
@@ -82,13 +82,13 @@ Característica: Pruebas unitarias campos en la pantalla generar clave
       | 1234                          | 4                    |                                                 |
       | 12355                         | 4                    | Ingresa el mismo número del campo "Nueva clave" |
       | 123456789012345               | 4                    |                                                 |
-      | qwerrtyuioñplkjhgfdsazxcvbnm  | 0                    | Ingresa un documento mínimo de 5 dígitos        |
+      | qwerrtyuioñplkjhgfdsazxcvbnm  | 0                    | Ingresa el mismo número del campo "Nueva clave" |
       | !"#$%&/()=?¡\'´¨*[];:_{}-.,+@ | 0                    | Ingresa el mismo número del campo "Nueva clave" |
       | 374345&%$&$sdfdfd             | 4                    | Ingresa el mismo número del campo "Nueva clave" |
 
   Esquema del escenario: Verificación habilitación campo confirmar clave
     Dado que camilo quiere ingresar a la pagina de generar clave
-    Cuando el escribe con el robot en los campos
+    Cuando el escribe en los campos
       | Campo a escribir       | palabra a escribir              |
       | número de documento    | <Diligenciar campo documento>   |
       | Ingresa la nueva clave | <Diligenciar campo nueva clave> |
@@ -105,7 +105,7 @@ Característica: Pruebas unitarias campos en la pantalla generar clave
 
   Esquema del escenario: Verificación habilitación boton generar
     Dado que camilo quiere ingresar a la pagina de generar clave
-    Cuando el escribe con el robot en los campos
+    Cuando el escribe en los campos
       | Campo a escribir        | palabra a escribir                  |
       | número de documento     | <Diligenciar campo documento>       |
       | Ingresa la nueva clave  | <Diligenciar campo nueva clave>     |

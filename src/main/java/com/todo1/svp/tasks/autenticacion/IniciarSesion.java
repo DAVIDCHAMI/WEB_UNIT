@@ -3,6 +3,7 @@ package com.todo1.svp.tasks.autenticacion;
 import static com.todo1.svp.interactions.Esperar.esperar;
 import static com.todo1.svp.userinterfaces.autenticacion.UsuarioPage.BOTON_PRINCIPAL;
 import static com.todo1.svp.userinterfaces.autenticacion.UsuarioPage.CAMPO;
+import static com.todo1.svp.utils.Utilidades.getEjecucion;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
@@ -18,6 +19,11 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 
 public class IniciarSesion implements Task {
 
+  public static final String USUARIO = "usuario";
+  public static final String CONTINUAR = "continuar";
+  public static final String CLAVE = "clave";
+  public static final String CONTRASENA = "contrasena";
+
   private List<Map<String, String>> credenciales;
 
   public IniciarSesion(List<Map<String, String>> credenciales) {
@@ -32,25 +38,25 @@ public class IniciarSesion implements Task {
   public <T extends Actor> void performAs(T actor) {
 
     for (Map<String, String> mapCredenciales : credenciales) {
-      if (System.getProperty("ejecucion").equals("local")) {
+      if ("local".equals(getEjecucion())) {
         actor.attemptsTo(
-            WaitUntil.the(CAMPO.of("usuario"), isClickable()),
-            Enter.theValue(mapCredenciales.get("Usuario")).into(CAMPO.of("usuario")),
-            Click.on(BOTON_PRINCIPAL.of("continuar")),
-            WaitUntil.the(CAMPO.of("usuario"), isNotVisible()).forNoMoreThan(4000).milliseconds(),
-            Enter.theValue(mapCredenciales.get("clave")).into(CAMPO.of("clave")),
-            Click.on(BOTON_PRINCIPAL.of("continuar")),
-            WaitUntil.the(CAMPO.of("clave"), isNotVisible()).forNoMoreThan(10000).milliseconds(),
+            WaitUntil.the(CAMPO.of(USUARIO), isClickable()),
+            Enter.theValue(mapCredenciales.get(USUARIO)).into(CAMPO.of(USUARIO)),
+            Click.on(BOTON_PRINCIPAL.of(CONTINUAR)),
+            WaitUntil.the(CAMPO.of(USUARIO), isNotVisible()).forNoMoreThan(5000).milliseconds(),
+            EscribirTeclado.escribir(mapCredenciales.get(CONTRASENA), CLAVE),
+            Click.on(BOTON_PRINCIPAL.of(CONTINUAR)),
+            WaitUntil.the(CAMPO.of(CLAVE), isNotVisible()).forNoMoreThan(10000).milliseconds(),
             esperar(3000));
       } else {
         actor.attemptsTo(
-            WaitUntil.the(CAMPO.of("usuario"), isClickable()),
-            Enter.theValue(mapCredenciales.get("Usuario")).into(CAMPO.of("usuario")),
-            Click.on(BOTON_PRINCIPAL.of("continuar")),
-            WaitUntil.the(CAMPO.of("usuario"), isNotVisible()).forNoMoreThan(4000).milliseconds(),
-            EscribirTeclado.escribir(mapCredenciales.get("Contrasena"), "clave"),
-            Click.on(BOTON_PRINCIPAL.of("continuar")),
-            WaitUntil.the(CAMPO.of("clave"), isNotVisible()).forNoMoreThan(10000).milliseconds(),
+            WaitUntil.the(CAMPO.of(USUARIO), isClickable()),
+            Enter.theValue(mapCredenciales.get(USUARIO)).into(CAMPO.of(USUARIO)),
+            Click.on(BOTON_PRINCIPAL.of(CONTINUAR)),
+            WaitUntil.the(CAMPO.of(USUARIO), isNotVisible()).forNoMoreThan(4000).milliseconds(),
+            Enter.theValue(mapCredenciales.get(CONTRASENA)).into(CAMPO.of(CLAVE)),
+            Click.on(BOTON_PRINCIPAL.of(CONTINUAR)),
+            WaitUntil.the(CAMPO.of(CLAVE), isNotVisible()).forNoMoreThan(10000).milliseconds(),
             esperar(3000));
       }
     }

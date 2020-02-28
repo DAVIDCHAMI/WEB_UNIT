@@ -9,7 +9,7 @@ Característica: Verificar texto y botones en la funcionalidad de saldos por pro
   Esquema del escenario: Verificar texto en la categoria de inversiones
     Dado que camilo quiere ingresar a la pagina de usuario
     Cuando el inicia sesion en la SVP
-      | Usuario  | Contrasena |
+      | usuario  | contrasena |
       | fiduqa02 | 1234       |
     Entonces el observa los textos correctamente
       | Hola Abundio |
@@ -25,7 +25,7 @@ Característica: Verificar texto y botones en la funcionalidad de saldos por pro
   Escenario: Verificar texto en la categoria de crediagil
     Dado que camilo quiere ingresar a la pagina de usuario
     Cuando el inicia sesion en la SVP
-      | Usuario    | Contrasena |
+      | usuario    | contrasena |
       | usucayca01 | 1234       |
     Entonces el observa los textos correctamente
       | Hola Pedro |
@@ -37,7 +37,7 @@ Característica: Verificar texto y botones en la funcionalidad de saldos por pro
   Esquema del escenario: Verificar texto en la categoria de cuentas
     Dado que camilo quiere ingresar a la pagina de usuario
     Cuando el inicia sesion en la SVP
-      | Usuario   | Contrasena |
+      | usuario   | contrasena |
       | chipote95 | 1234       |
     Entonces el observa los textos correctamente
       | Hola First |
@@ -54,7 +54,7 @@ Característica: Verificar texto y botones en la funcionalidad de saldos por pro
   Esquema del escenario: Verificar texto en la categoria de Tarjetas de créditos
     Dado que camilo quiere ingresar a la pagina de usuario
     Cuando el inicia sesion en la SVP
-      | Usuario   | Contrasena   |
+      | usuario   | contrasena   |
       | <Usuario> | <Contrasena> |
     Entonces el observa los textos correctamente
       | <Titulo> |
@@ -73,7 +73,7 @@ Característica: Verificar texto y botones en la funcionalidad de saldos por pro
   Esquema del escenario: Verificar texto en la categoria de Creditos
     Dado que camilo quiere ingresar a la pagina de usuario
     Cuando el inicia sesion en la SVP
-      | Usuario   | Contrasena |
+      | usuario   | contrasena |
       | chipote95 | 1234       |
     Entonces el observa los textos correctamente
       | Hola First |

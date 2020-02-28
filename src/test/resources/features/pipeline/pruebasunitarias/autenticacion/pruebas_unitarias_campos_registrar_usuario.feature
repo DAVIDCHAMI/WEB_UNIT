@@ -8,8 +8,8 @@ Característica: Pruebas unitarias campos en la pantalla registrar usuario
 
   Escenario: Inicio sesion registro
     Dado que camilo quiere ingresar a la pagina de usuario
-    Cuando el inicia sesion en la SVP con el robot
-      | Usuario  | Contrasena |
+    Cuando el inicia sesion en la SVP
+      | usuario  | contrasena |
       | 45267201 | 1234       |
 
   Esquema del escenario: Validaciones campo frase de seguridad
@@ -42,11 +42,11 @@ Característica: Pruebas unitarias campos en la pantalla registrar usuario
       | Diligenciar                              | Numero de caracteres | Mensaje de error                     |
       | pepito_perez1234@hotmail.com             | 28                   |                                      |
       | jauahdjsjs_jdjde.iedjie2132.com          | 31                   | Ingresa un correo electrónico válido |
-      | !j"u#a$n%&@todo1.net                     | 14                   |                                      |
-      | juanperez@mail12%&"/3-fr.com             | 24                   |                                      |
-      | ad@gf%"&.com                             | 9                    | Ingresa un correo electrónico válido |
+      | !ju#a$n%&@todo1.net                      | 14                   |                                      |
+      | juanperez@mail12%&/3-fr.com              | 24                   |                                      |
+      | ad@gf%&.com                              | 9                    | Ingresa un correo electrónico válido |
       | asdfghjklasdfghjklzxasdfghjklz@gmail.com | 38                   |                                      |
-      | !"#$%&/()=?¡\¨*[]^`~                     | 0                    | Ingresa un correo electrónico válido |
+      | !#$%&/()=?¡\¨*[]^`~                      | 0                    | Ingresa un correo electrónico válido |
 
   Esquema del escenario: Validaciones campo nuevo usuario
     Dado que camilo quiere ingresar a la pagina de registrar usuario
@@ -60,8 +60,8 @@ Característica: Pruebas unitarias campos en la pantalla registrar usuario
       | Diligenciar                             | Numero de caracteres | Mensaje de error                                                            |
       | qwertyuipodkfjgutyrhfncbcuduhdvueheuf   | 20                   | Ingresa un usuario entre 8 y 20 caracteres, usa letras y máximo dos números |
       | qwertyuipodkfjgutyrh34fncbcuduhdvueheuf | 20                   |                                                                             |
-      | Juan$%&/.,Mrucia12                      | 13                   |                                                                             |
-      | !"#$%&/()=?¡\'´¨*[];:_{}-.,+            | 0                    |                                                                             |
+      | Juan$%&/.,Mrucia12                      | 12                   |                                                                             |
+      | !#$%&/()=?¡\'´¨*[];:_{}-.,+             | 0                    |                                                                             |
       | 123456789123456789123456789             | 20                   | Ingresa un usuario entre 8 y 20 caracteres, usa letras y máximo dos números |
       | 0JuanAndres                             | 11                   |                                                                             |
 
@@ -91,12 +91,12 @@ Característica: Pruebas unitarias campos en la pantalla registrar usuario
     Entonces el observa que el boton: continuar esta <Estado del boton>
 
     Ejemplos:
-      | Diligenciar usuario   | Diligenciar correo electronico         | Diligenciar celular            | Estado del boton |
-      | JuanCamilo1           | pepitoperez@todo1.com                  | 3224565780                     | Habilitado       |
-      | Juan/&%%$#perez123243 | pepitoperez@todo1.com                  | 3224565780                     | Desabilitado     |
-      | JuanCamilo1           | jauahdjsjs_jdjde@.$%$@""iedjie2132.com | 3224565780                     | Desabilitado     |
-      | JuanCamilo1           | pepitoperez@todo1.com                  | 12345                          | Desabilitado     |
-      | juan!"#$""1ramos      | !j"u#a$n%&@todo1.net                   | ddeidb1234"#$&/*!"@123459cbc89 | Habilitado       |
+      | Diligenciar usuario   | Diligenciar correo electronico         | Diligenciar celular         | Estado del boton |
+      | JuanCamilo1           | pepitoperez@todo1.com                  | 3224565780                  | Habilitado       |
+      | Juan/&%%$#perez123243 | pepitoperez@todo1.com                  | 3224565780                  | Desabilitado     |
+      | JuanCamilo1           | jauahdjsjs_jdjde@.$%$@""iedjie2132.com | 3224565780                  | Desabilitado     |
+      | JuanCamilo1           | pepitoperez@todo1.com                  | 12345                       | Desabilitado     |
+      | juan!#$1ramos         | !ju#a$n%&@todo1.net                    | ddeidb1234#$&/*!123459cbc89 | Habilitado       |
 
   Escenario: Verificación placeholder campos registrar pantalla usuario
     Cuando camilo ingresa a la pagina de registrar usuario

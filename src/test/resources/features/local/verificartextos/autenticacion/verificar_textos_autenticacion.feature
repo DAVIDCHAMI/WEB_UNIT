@@ -35,7 +35,7 @@ Característica: Verificar texto y botones en la funcionalidad de autenticacion
   @pantalla_ingresar_clave
   Escenario: Verificar texto en la pantalla ingresar clave
     Dado que camilo quiere ingresar a la pagina de usuario
-    Cuando el escribe con el robot en los campos
+    Cuando el escribe en los campos
       | Campo a escribir | palabra a escribir |
       | usuario          | Juan1234           |
     Y el ingresa a la pantalla clave
@@ -47,7 +47,7 @@ Característica: Verificar texto y botones en la funcionalidad de autenticacion
       | Generar clave                           |
     Y el observa que el boton: volver esta Habilitado
     Y el observa un tooltip con un mensaje de ayuda
-      | Esta opción es exclusiva para colombianos en el exterior. Si estas en Colombia, debes generar la clave en la Sucursal Física. |
+      | Esta opción es exclusiva para colombianos en el exterior. Si estás en Colombia, debes generar la clave en la Sucursal Física. |
 
   @pantalla_registrar_usuario_(usuario)
   Escenario: Verificar texto en la pantalla registrar usuario (Usuario)

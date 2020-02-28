@@ -27,7 +27,8 @@ public class IngresarCategoriaDetalles implements Task {
 
   @Override
   public <T extends Actor> void performAs(T actor) {
-    actor.attemptsTo(WaitUntil.the(CATEGORIA.of(categoria), isEnabled()));
+    actor.attemptsTo(
+        WaitUntil.the(CATEGORIA.of(categoria), isEnabled()).forNoMoreThan(5000).milliseconds());
     if ("false"
         .equalsIgnoreCase(
             CATEGORIA.of(categoria).resolveFor(actor).getAttribute("data-expanded"))) {

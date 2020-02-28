@@ -12,7 +12,7 @@ Característica: Pruebas unitarias campos en la pantalla ingresar clave
       | Campo a escribir | palabra a escribir |
       | usuario          | Juan1234           |
     Y el ingresa a la pantalla clave
-    Y el escribe con el robot en el campo
+    Y el escribe en el campo
       | Campo a escribir | palabra a escribir |
       | clave            | <clave>            |
     Entonces el observa que en el campo clave hay <Numero de caracteres> caracteres
@@ -32,7 +32,7 @@ Característica: Pruebas unitarias campos en la pantalla ingresar clave
 
   Esquema del escenario: Validaciones imagen de seguridad
     Dado que camilo quiere ingresar a la pagina de usuario
-    Cuando el escribe con el robot en el campo
+    Cuando el escribe en el campo
       | Campo a escribir | palabra a escribir |
       | usuario          | <Usuario>          |
     Y el ingresa a la pantalla clave

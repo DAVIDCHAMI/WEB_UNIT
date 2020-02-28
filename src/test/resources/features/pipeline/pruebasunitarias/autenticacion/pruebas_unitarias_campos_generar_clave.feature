@@ -82,7 +82,7 @@ Característica: Pruebas unitarias campos en la pantalla generar clave
       | 1234                         | 4                    |                                                 |
       | 12355                        | 4                    | Ingresa el mismo número del campo "Nueva clave" |
       | 123456789012345              | 4                    |                                                 |
-      | qwerrtyuioplkjhgfdsazxcvbnm  | 0                    | Ingresa un documento mínimo de 5 dígitos        |
+      | qwerrtyuioplkjhgfdsazxcvbnm  | 0                    | Ingresa el mismo número del campo "Nueva clave" |
       | !"#$%&/()=?¡\'´¨*[];:_{}-.,+ | 0                    | Ingresa el mismo número del campo "Nueva clave" |
       | 374345&%$&$sdfdfd            | 4                    | Ingresa el mismo número del campo "Nueva clave" |
 

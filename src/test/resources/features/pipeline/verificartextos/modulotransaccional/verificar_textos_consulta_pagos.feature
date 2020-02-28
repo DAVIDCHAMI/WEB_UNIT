@@ -9,7 +9,7 @@ Característica: Verificar texto y botones en la funcionalidad de consulta de pa
   Esquema del escenario: Verificar texto en la categoria de consulta de pagos Créditos
     Dado que camilo quiere ingresar a la pagina de usuario
     Cuando el inicia sesion en la SVP
-      | Usuario   | Contrasena |
+      | usuario   | contrasena |
       | chipote95 | 1234       |
     Entonces el observa los textos correctamente
       | Hola First |
@@ -27,7 +27,7 @@ Característica: Verificar texto y botones en la funcionalidad de consulta de pa
   Escenario: Verificar texto en la categoria de consulta de pagos Tarjetas de créditos
     Dado que camilo quiere ingresar a la pagina de usuario
     Cuando el inicia sesion en la SVP
-      | Usuario  | Contrasena |
+      | usuario  | contrasena |
       | usuctdc1 | 1234       |
     Entonces el observa los textos correctamente
       | Hola Julia |
@@ -35,4 +35,4 @@ Característica: Verificar texto y botones en la funcionalidad de consulta de pa
       | Tarjeta de crédito        |
       | Personal American Express |
       | *5988                     |
-      | 17 Ene 2020               |
+      | 18 Feb 2020               |

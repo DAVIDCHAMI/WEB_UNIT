@@ -47,7 +47,7 @@ Característica: Verificar texto y botones en la funcionalidad de autenticacion
       | Generar clave                           |
     Y el observa que el boton: volver esta Habilitado
     Y el observa un tooltip con un mensaje de ayuda
-      | Esta opción es exclusiva para colombianos en el exterior. Si estas en Colombia, debes generar la clave en la Sucursal Física. |
+      | Esta opción es exclusiva para colombianos en el exterior. Si estás en Colombia, debes generar la clave en la Sucursal Física. |
 
   @pantalla_registrar_usuario_(usuario)
   Escenario: Verificar texto en la pantalla registrar usuario (Usuario)

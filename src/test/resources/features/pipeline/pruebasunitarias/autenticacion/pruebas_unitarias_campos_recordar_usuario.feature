@@ -8,7 +8,7 @@ Característica: Pruebas unitarias campos en la pantalla recordar usuario
 
   Esquema del escenario: Validaciones campo número de documento
     Dado que camilo quiere ingresar a la pagina de recordar usuario
-    Cuando el escribe con el robot en el campo
+    Cuando el escribe en el campo
       | Campo a escribir    | palabra a escribir |
       | número de documento | <Diligenciar>      |
     Entonces el observa que en el campo número de documento hay <Numero de caracteres> caracteres

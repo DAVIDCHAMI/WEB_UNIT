@@ -8,13 +8,13 @@ Característica: Pruebas unitarias campos en la pantalla registrar usuario
 
   Escenario: Inicio sesion registro
     Dado que camilo quiere ingresar a la pagina de usuario
-    Cuando el inicia sesion en la SVP con el robot
+    Cuando el inicia sesion en la SVP
       | Usuario  | Contrasena |
       | 45267201 | 1234       |
 
   Esquema del escenario: Validaciones campo frase de seguridad
     Dado que camilo quiere ingresar a la pagina de registrar frase de seguridad del usuario
-    Cuando el escribe con el robot en el campo
+    Cuando el escribe en el campo
       | Campo a escribir | palabra a escribir |
       | frase            | <Diligenciar>      |
     Entonces el observa que en el campo frase hay <Numero de caracteres> caracteres
@@ -32,7 +32,7 @@ Característica: Pruebas unitarias campos en la pantalla registrar usuario
 
   Esquema del escenario: Validaciones campo correo electrónico
     Dado que camilo quiere ingresar a la pagina de registrar usuario
-    Cuando el escribe con el robot en el campo
+    Cuando el escribe en el campo
       | Campo a escribir   | palabra a escribir |
       | correo electrónico | <Diligenciar>      |
     Entonces el observa que en el campo correo electrónico hay <Numero de caracteres> caracteres
@@ -51,7 +51,7 @@ Característica: Pruebas unitarias campos en la pantalla registrar usuario
 
   Esquema del escenario: Validaciones campo nuevo usuario
     Dado que camilo quiere ingresar a la pagina de registrar usuario
-    Cuando el escribe con el robot en el campo
+    Cuando el escribe en el campo
       | Campo a escribir | palabra a escribir |
       | usuario          | <Diligenciar>      |
     Entonces el observa que en el campo usuario hay <Numero de caracteres> caracteres
@@ -68,7 +68,7 @@ Característica: Pruebas unitarias campos en la pantalla registrar usuario
 
   Esquema del escenario: Validaciones campo numero de celular
     Dado que camilo quiere ingresar a la pagina de registrar usuario
-    Cuando el escribe con el robot en el campo
+    Cuando el escribe en el campo
       | Campo a escribir  | palabra a escribir |
       | número de celular | <Diligenciar>      |
     Entonces el observa que en el campo número de celular hay <Numero de caracteres> caracteres
@@ -84,7 +84,7 @@ Característica: Pruebas unitarias campos en la pantalla registrar usuario
 
   Esquema del escenario: Verificacion habilitacion boton continuar
     Dado que camilo quiere ingresar a la pagina de registrar usuario
-    Cuando el escribe con el robot en el campo
+    Cuando el escribe en el campo
       | Campo a escribir   | palabra a escribir               |
       | usuario            | <Diligenciar usuario>            |
       | correo electrónico | <Diligenciar correo electronico> |

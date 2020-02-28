@@ -9,7 +9,7 @@ Característica: Verificar texto y botones en la funcionalidad de detalles
   Escenario: Verificar texto detalles cuenta de ahorro
     Dado que camilo quiere ingresar a la pagina de usuario
     Y el inicia sesion en la SVP
-      | Usuario   | Contrasena |
+      | usuario   | contrasena |
       | chipote95 | 1234       |
     Cuando el ingresa a los detalles de Cuentas con numero 406-757950-06
     Entonces el observa los textos correctamente
@@ -30,7 +30,7 @@ Característica: Verificar texto y botones en la funcionalidad de detalles
   Escenario: Verificar texto detalles cuentas corrientes
     Dado que camilo quiere ingresar a la pagina de usuario
     Y el inicia sesion en la SVP
-      | Usuario   | Contrasena |
+      | usuario   | contrasena |
       | chipote95 | 1234       |
     Cuando el ingresa a los detalles de Cuentas con numero 406-157950-05
     Entonces el observa los textos correctamente
@@ -53,7 +53,7 @@ Característica: Verificar texto y botones en la funcionalidad de detalles
   Escenario: Verificar texto detalles tarjetas de credito
     Dado que camilo quiere ingresar a la pagina de usuario
     Y el inicia sesion en la SVP
-      | Usuario  | Contrasena |
+      | usuario  | contrasena |
       | usuctdc1 | 1234       |
     Cuando el ingresa a los detalles de Tarjetas de crédito con numero *5988
     Entonces el observa los textos correctamente
@@ -79,7 +79,7 @@ Característica: Verificar texto y botones en la funcionalidad de detalles
   Escenario: Verificar texto detalles tarjetas de credito virtual
     Dado que camilo quiere ingresar a la pagina de usuario
     Y el inicia sesion en la SVP
-      | Usuario       | Contrasena |
+      | usuario       | contrasena |
       | pruebaecard02 | 1234       |
     Cuando el ingresa a los detalles de Tarjetas de crédito con numero *7371
     Entonces el observa los textos correctamente
@@ -108,7 +108,7 @@ Característica: Verificar texto y botones en la funcionalidad de detalles
   Escenario: Verificar texto detalles creditos hipotecarios
     Dado que camilo quiere ingresar a la pagina de usuario
     Y el inicia sesion en la SVP
-      | Usuario   | Contrasena |
+      | usuario   | contrasena |
       | chipote95 | 1234       |
     Cuando el ingresa a los detalles de Créditos con numero 10001263181
     Entonces el observa los textos correctamente
@@ -138,7 +138,7 @@ Característica: Verificar texto y botones en la funcionalidad de detalles
   Escenario: Verificar texto detalles inversion virtual
     Dado que camilo quiere ingresar a la pagina de usuario
     Y el inicia sesion en la SVP
-      | Usuario  | Contrasena |
+      | usuario  | contrasena |
       | fiduqa02 | 1234       |
     Cuando el ingresa a los detalles de Inversiones con numero 27600131486
     Entonces el observa los textos correctamente
@@ -164,7 +164,7 @@ Característica: Verificar texto y botones en la funcionalidad de detalles
   Escenario: Verificar texto detalles fondos de inversión
     Dado que camilo quiere ingresar a la pagina de usuario
     Y el inicia sesion en la SVP
-      | Usuario    | Contrasena |
+      | usuario    | contrasena |
       | fidurenta2 | 1234       |
     Cuando el ingresa a los detalles de Inversiones con numero 7001000083018
     Entonces el observa los textos correctamente
@@ -180,7 +180,7 @@ Característica: Verificar texto y botones en la funcionalidad de detalles
   Escenario: Verificar textos detalles creditos de consumo
     Dado que camilo quiere ingresar a la pagina de usuario
     Y el inicia sesion en la SVP
-      | Usuario   | Contrasena |
+      | usuario   | contrasena |
       | chipote95 | 1234       |
     Cuando el ingresa a los detalles de Créditos con numero 29281026324
     Entonces el observa los textos correctamente
@@ -201,15 +201,15 @@ Característica: Verificar texto y botones en la funcionalidad de detalles
       | Intereses de mora    |
       | Otros cargos         |
     Y el observa un tooltip con un mensaje de ayuda
-      | Valor de la deuda a la fecha sin incluir intereses ni otros cargos. |
-      | Valor total en mora   generado a la fecha.                          |
-      | Valor del interés de   mora generado a la fecha.                    |
-      | Valor de los seguros asociados al crédito                           |
+      | Valor de la deuda a la  fecha sin incluir   intereses ni otros cargos. |
+      | Valor total en mora   generado a la fecha.                             |
+      | Valor del interés de   mora generado a la fecha.                       |
+      | Valor de los seguros asociados al crédito                              |
 
   Escenario: Verificar textos detalles crediagil
     Dado que camilo quiere ingresar a la pagina de usuario
     Y el inicia sesion en la SVP
-      | Usuario    | Contrasena |
+      | usuario    | contrasena |
       | usucayca01 | 1234       |
     Cuando el ingresa a los detalles de Crediágil con numero Crediágil
     Entonces el observa los textos correctamente

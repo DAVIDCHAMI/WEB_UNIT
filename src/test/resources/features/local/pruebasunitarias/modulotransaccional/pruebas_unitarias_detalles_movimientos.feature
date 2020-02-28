@@ -8,7 +8,7 @@ Característica: Pruebas unitarias Detalles y movimientos
 
   Esquema del escenario: Validaciones campo Type list seleccionar producto cuentas
     Dado que camilo quiere ingresar a la pagina de usuario
-    Y el inicia sesion en la SVP con el robot
+    Y el inicia sesion en la SVP
       | Usuario   | Contrasena |
       | chipote95 | 1234       |
     Cuando el ingresa a los detalles de Cuentas con numero 406-757950-06
