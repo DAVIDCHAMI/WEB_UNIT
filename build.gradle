@@ -73,5 +73,19 @@ dependencies {
     implementation 'net.serenity-bdd:serenity-screenplay-webdriver:1.1.36'
 }
 
+test {
+    def ejecucion = (System.getProperty("ejecucion") ?: "pipeline").trim()
+    def ruta = "*.runners.$ejecucion*"
+    System.setProperty('ejecucion', ejecucion)
+    systemProperties = ['ejecucion': ejecucion]
+    filter {
+        includeTestsMatching ruta
+        failOnNoMatchingTests = false
+    }
+    if (ejecucion.equals("pipeline")) {
+        maxParallelForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
+    }
+}
+
 compileJava.mustRunAfter 'sonarqube'
 gradle.startParameter.continueOnFailure = true

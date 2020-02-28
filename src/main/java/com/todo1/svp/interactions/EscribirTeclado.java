@@ -1,7 +1,6 @@
 package com.todo1.svp.interactions;
 
 import static com.todo1.svp.userinterfaces.autenticacion.UsuarioPage.CAMPO;
-import static com.todo1.svp.userinterfaces.autenticacion.UsuarioPage.LOGO_BANCOLOMBIA;
 import static com.todo1.svp.utils.MapeoTeclado.escribirCaracter;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
@@ -13,6 +12,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.SendKeys;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.steps.StepInterceptor;
+import org.openqa.selenium.Keys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,7 +47,7 @@ public class EscribirTeclado implements Interaction {
         actor.attemptsTo(SendKeys.of(palabra).into(CAMPO.of(campoEscribir)));
       }
     }
-    actor.attemptsTo(Click.on(LOGO_BANCOLOMBIA));
+    BrowseTheWeb.as(actor).withAction().sendKeys(Keys.TAB).build().perform();
   }
 
   private void escribirTeclado(Actor actor) {

@@ -1,5 +1,8 @@
 package com.todo1.svp.utils;
 
+import net.thucydides.core.util.EnvironmentVariables;
+import net.thucydides.core.util.SystemEnvironmentVariables;
+
 public class Utilidades {
 
   private Utilidades() {}
@@ -16,5 +19,10 @@ public class Utilidades {
     cadena = cadena.replaceAll("\\u00fa", "u");
     cadena = cadena.replaceAll("\\u00da", "U");
     return cadena;
+  }
+
+  public static String getEjecucion() {
+    EnvironmentVariables variables = SystemEnvironmentVariables.createEnvironmentVariables();
+    return variables.getProperty("ejecucion");
   }
 }
